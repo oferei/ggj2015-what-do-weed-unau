@@ -432,7 +432,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bufSize: 1
   sampleRate: 44100
-  maxInputAmp: 5000
+  maxInputAmp: .400000006
   averagingSampleSize: .300000012
   debugScreen: {fileID: 1681976785}
   volumeBar: {fileID: 1729663615}
