@@ -3,7 +3,10 @@
 class Mic(MonoBehaviour):
 
 	public bufSize as int = 1
-	public sampleSize as single = 0.3
+	public sampleRate as int = 44100
+	public maxInputAmp as single = 5000
+
+	public averagingSampleSize as single = 0.3
 
 	public volumeText as UI.Text
 	public volumeBar as UI.Image
@@ -12,10 +15,10 @@ class Mic(MonoBehaviour):
 
 	def Start():
 		Debug.Log("Microphone.Start")
-		clip = Microphone.Start(null, true, bufSize, 44100)
+		clip = Microphone.Start(null, true, bufSize, sampleRate)
 
 		# aud as AudioSource = GetComponent[of AudioSource]()
-		# aud.clip = Microphone.Start(null, true, 10, 44100)
+		# aud.clip = Microphone.Start(null, true, 10, sampleRate)
 		# aud.Play()
 
 	def Update():
@@ -32,11 +35,11 @@ class Mic(MonoBehaviour):
 				# sum += Mathf.Abs(sample)
 			srcIndex = pos
 			numSamples = len(samples)
-			for i in range(sampleSize * 44100):
+			for i in range(averagingSampleSize * sampleRate):
 				sum += Mathf.Abs(samples[srcIndex % numSamples])
 				--srcIndex
 
-			vol = Mathf.Clamp01(sum / 10000.0)
-			vol = Mathf.Log(vol * 1000, 10)
+			vol = Mathf.Clamp01(sum / maxInputAmp)
+			vol = Mathf.Max(Mathf.Log(vol * 8, 2), 0)
 			volumeBar.transform.localScale.y = vol
 			volumeText.text = "pos=$(pos)\nsum=$(sum)\nvol=$(vol)"
