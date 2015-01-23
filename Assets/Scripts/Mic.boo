@@ -8,7 +8,7 @@ class Mic(MonoBehaviour):
 
 	public averagingSampleSize as single = 0.3
 
-	public volumeText as UI.Text
+	public debugScreen as DebugScreen
 	public volumeBar as UI.Image
 
 	clip as AudioClip
@@ -32,4 +32,6 @@ class Mic(MonoBehaviour):
 			vol = Mathf.Clamp01(sum / maxInputAmp)
 			vol = Mathf.Max(Mathf.Log(vol * 8, 2), 0)
 			volumeBar.transform.localScale.y = vol
-			volumeText.text = "pos=$(pos)\nsum=$(sum)\nvol=$(vol)"
+			debugScreen.logRow("pos=$(pos)")
+			debugScreen.logRow("sum=$(sum)")
+			debugScreen.logRow("vol=$(vol)")
