@@ -1,6 +1,6 @@
 ﻿import UnityEngine
 
-class DebugScreen(MonoBehaviour): 
+class DebugScreen(MonoBehaviour):
 
 	builder = System.Text.StringBuilder()
 
