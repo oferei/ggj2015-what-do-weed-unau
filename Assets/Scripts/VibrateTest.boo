@@ -5,8 +5,8 @@ class VibrateTest(MonoBehaviour):
 	onText = "1"
 	offText = "300"
 
-	def Start ():
-		Vibration.Vibrate()
+	# def Start ():
+	# 	Vibration.Vibrate()
 
 	def OnGUI():
 		labelStyle = GUIStyle(GUI.skin.label)
