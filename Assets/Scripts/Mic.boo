@@ -30,7 +30,7 @@ class Mic(MonoBehaviour):
 				--srcIndex
 
 			vol = Mathf.Clamp01(sum / maxInputAmp)
-			vol = Mathf.Max(Mathf.Log(vol * 8, 2), 0)
+			vol = Mathf.Max(Mathf.Log(vol * 8, 2) / 3, 0)
 			volumeBar.transform.localScale.y = vol
 			debugScreen.logRow("pos=$(pos)")
 			debugScreen.logRow("sum=$(sum)")
