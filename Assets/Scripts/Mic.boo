@@ -29,7 +29,7 @@ class Mic(MonoBehaviour):
 				sum += Mathf.Abs(samples[(srcIndex + numSamples) % numSamples])
 				--srcIndex
 			avg as single = sum / (averagingSampleSize * sampleRate)
-			debugScreen.logRow("mic.avg=$(avg)")
+			# debugScreen.logRow("mic.avg=$(avg)")
 
 			vol as single = Mathf.Clamp01(avg / maxInputAmp)
 			# debugScreen.logRow("mic.vol1=$(vol)")

@@ -43,7 +43,7 @@ class LighterMove(MonoBehaviour):
 		God.inst.hermes.stopListening(MessageSmokeMode, self)
 
 	def OnMsgSmokeMode(msg as MessageSmokeMode):
-		Debug.Log("Hand: Received a smoke-mode message: ${msg.enabled}")
+		# Debug.Log("Hand: Received a smoke-mode message: ${msg.enabled}")
 		if msg.enabled:
 			for state as AnimationState in handController:
 				state.speed = 1
@@ -54,7 +54,7 @@ class LighterMove(MonoBehaviour):
 	def Update():
 		for state as AnimationState in handController:
 			state.normalizedTime = Mathf.Clamp01(state.normalizedTime)
-			DebugScreen.logRow("hand.pos=$(state.normalizedTime)")
+			# DebugScreen.logRow("hand.pos=$(state.normalizedTime)")
 
 		if shown:
 			if Input.GetMouseButton(0):

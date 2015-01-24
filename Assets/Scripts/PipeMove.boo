@@ -22,10 +22,10 @@ class PipeMove(MonoBehaviour):
 	def Update():
 		for state as AnimationState in pipe:
 			state.normalizedTime = Mathf.Clamp01(state.normalizedTime)
-			DebugScreen.logRow("pipe.pos=$(state.normalizedTime)")
+			# DebugScreen.logRow("pipe.pos=$(state.normalizedTime)")
 
 	def OnMsgSmokeMode(msg as MessageSmokeMode):
-		Debug.Log("Pipe: Received a smoke-mode message: ${msg.enabled}")
+		# Debug.Log("Pipe: Received a smoke-mode message: ${msg.enabled}")
 		if msg.enabled:
 			for state as AnimationState in pipe:
 				state.speed = 1
