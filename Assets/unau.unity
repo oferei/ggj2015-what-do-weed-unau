@@ -7655,6 +7655,7 @@ MonoBehaviour:
   minY: .579999983
   speed: 15
   threshold: .600000024
+  handLightDelay: .0500000007
   ignitionDelay: .150000006
 --- !u!1 &1162476609
 GameObject:

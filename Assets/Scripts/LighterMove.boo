@@ -16,6 +16,7 @@ class LighterMove(MonoBehaviour):
 	public minY as single = 0.7
 	public speed as single = 3
 	public threshold as single = 0.6
+	public handLightDelay as single = 0.050
 	public ignitionDelay as single = 0.150
 
 	shown as bool = false
@@ -101,7 +102,11 @@ class LighterMove(MonoBehaviour):
 	def ignite():
 		StopAllCoroutines()
 		StartCoroutine(playSparks())
+		Invoke("lightHand", handLightDelay)
 		Invoke("onIgnite", ignitionDelay)
+
+	def lightHand():
+		handRenderer.sprite = handLit
 
 	def onIgnite():
 		lit = true
