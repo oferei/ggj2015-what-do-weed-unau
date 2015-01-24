@@ -9,19 +9,23 @@ class Tilt(MonoBehaviour):
 	public cameraBottomAngle as single = 15
 	public cameraSmokeAngleThreshold as single = 13
 	public lighter as LighterShow
+	public smoothTime as single = 2.0
+	public maxSpeed as single = 0.5
 
 	public debugScreen as DebugScreen
 	public slider as UI.Slider
 
-	relAngle as single = 1
+	smoothAngle as single = 1
+	currentVelocity as single
 
 	def Update():
 		# debugScreen.logRow("accel=$(Input.acceleration)")
 		debugScreen.logRow("tilt=$(Input.acceleration.y)")
-		destination = Mathf.InverseLerp(bottomAngle, topAngle, Input.acceleration.y)
-		destination = Mathf.SmoothStep(0, 1, destination)
-		relAngle = Mathf.Lerp(relAngle, destination, speed * Time.deltaTime)
-		slider.value = relAngle
-		cameraAngle = Mathf.Lerp(cameraBottomAngle, cameraTopAngle, relAngle)
+		actualAngle = Mathf.InverseLerp(bottomAngle, topAngle, Input.acceleration.y)
+		# actualAngle = Mathf.SmoothStep(0, 1, actualAngle)
+		# smoothAngle = Mathf.Lerp(smoothAngle, actualAngle, speed * Time.deltaTime)
+		# slider.value = smoothAngle
+		smoothAngle = Mathf.SmoothDampAngle(smoothAngle, actualAngle, currentVelocity, smoothTime, maxSpeed)
+		cameraAngle = Mathf.Lerp(cameraBottomAngle, cameraTopAngle, smoothAngle)
 		Camera.main.transform.localEulerAngles.x = cameraAngle
 		lighter.shown = cameraAngle >= cameraSmokeAngleThreshold
