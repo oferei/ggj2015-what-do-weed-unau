@@ -80,7 +80,7 @@ class Inhale(MonoBehaviour):
 		burnLevel += heat * Time.deltaTime
 
 	def decreaseBurn():
-		burnLevel -= chillFactor * Time.deltaTime
+		burnLevel -= chillFactor * burnLevel * Time.deltaTime
 
 	def updateSmoke():
 		pass
