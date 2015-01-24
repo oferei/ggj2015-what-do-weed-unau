@@ -7043,6 +7043,9 @@ MonoBehaviour:
   hand1: {fileID: 789254121}
   hand2: {fileID: 1621612708}
   spark: {fileID: 1887055831}
+  handRenderer: {fileID: 1776770545}
+  handUnlit: {fileID: 21300000, guid: 4b0ed6f4ab8ac0147b8b66dfa68c9e2d, type: 3}
+  handLit: {fileID: 21300000, guid: 343ac1033ecea4a40b18dc70651d05e5, type: 3}
   maxY: .670000017
   minY: .579999983
   speed: 15

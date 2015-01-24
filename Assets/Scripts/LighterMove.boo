@@ -6,6 +6,9 @@ class LighterMove(MonoBehaviour):
 	public hand1 as Animation
 	public hand2 as Animation
 	public spark as Animator
+	public handRenderer as SpriteRenderer
+	public handUnlit as Sprite
+	public handLit as Sprite
 
 	public maxY as single = 1
 	public minY as single = 0.7
@@ -19,7 +22,9 @@ class LighterMove(MonoBehaviour):
 		get:
 			return _lit
 		protected set:
-			_lit = value
+			if _lit != value:
+				_lit = value
+				onLitChanged()
 
 	handAnimPos as single = 0.0
 
@@ -114,20 +119,7 @@ class LighterMove(MonoBehaviour):
 		# DebugScreen.logRow("*** spark=$(spark.playbackTime)")
 
 		if shown:
-			touch = Input.GetMouseButton(0)
-			if not lit and touch:
-				# Debug.Log("*** spark")
-				pass
-				# spark.Play("Spark")
-				# spark.StartPlayback()
-				# stateInfo = spark.GetCurrentAnimatorStateInfo(0)
-				# Debug.Log("*** stateInfo=$(stateInfo) length=$(stateInfo.length)")
-				# spark.CrossFade("Sparks", 0f)
-				# settrigger
-				# Animator.StringToHash('Jump')
-
-			# spark
-			lit = touch
+			lit = Input.GetMouseButton(0)
 			if lit:
 				pos = Input.mousePosition.y / Screen.height
 				# DebugScreen.logRow("pos=$(pos)")
@@ -142,3 +134,17 @@ class LighterMove(MonoBehaviour):
 			state.normalizedTime = handAnimPos
 		for state as AnimationState in hand2:
 			state.normalizedTime = handAnimPos
+
+	def onLitChanged():
+		# Debug.Log("*** lit=$(lit)")
+		handRenderer.sprite = (handLit if lit else handUnlit)
+		if lit:
+			pass
+			# Debug.Log("*** spark")
+			# spark.Play("Spark")
+			# spark.StartPlayback()
+			# stateInfo = spark.GetCurrentAnimatorStateInfo(0)
+			# Debug.Log("*** stateInfo=$(stateInfo) length=$(stateInfo.length)")
+			# spark.CrossFade("Sparks", 0f)
+			# settrigger
+			# Animator.StringToHash('Jump')
