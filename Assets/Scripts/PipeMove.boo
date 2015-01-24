@@ -26,9 +26,5 @@ class PipeMove(MonoBehaviour):
 
 	def OnMsgSmokeMode(msg as MessageSmokeMode):
 		# Debug.Log("Pipe: Received a smoke-mode message: ${msg.enabled}")
-		if msg.enabled:
-			for state as AnimationState in pipe:
-				state.speed = 1
-		else:
-			for state as AnimationState in pipe:
-				state.speed = -1
+		for state as AnimationState in pipe:
+			state.speed = (1 if msg.enabled else -1)

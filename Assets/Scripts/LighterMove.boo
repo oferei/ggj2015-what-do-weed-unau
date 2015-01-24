@@ -44,12 +44,8 @@ class LighterMove(MonoBehaviour):
 
 	def OnMsgSmokeMode(msg as MessageSmokeMode):
 		# Debug.Log("Hand: Received a smoke-mode message: ${msg.enabled}")
-		if msg.enabled:
-			for state as AnimationState in handController:
-				state.speed = 1
-		else:
-			for state as AnimationState in handController:
-				state.speed = -1
+		for state as AnimationState in handController:
+			state.speed = (1 if msg.enabled else -1)
 
 	def Update():
 		for state as AnimationState in handController:
