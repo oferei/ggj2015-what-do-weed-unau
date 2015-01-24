@@ -18,6 +18,7 @@ class LighterMove(MonoBehaviour):
 	public threshold as single = 0.6
 	public handLightDelay as single = 0.050
 	public ignitionDelay as single = 0.150
+	public failureChance as single = 0.05
 
 	shown as bool = false
 
@@ -109,15 +110,24 @@ class LighterMove(MonoBehaviour):
 		handRenderer.sprite = handLit
 
 	def onIgnite():
-		lit = true
+		if Random.value < failureChance:
+			onUnlit
+		else:
+			lit = true
 
 	def onLitChanged():
-		handRenderer.sprite = (handLit if lit else handUnlit)
 		if lit:
-			pass
+			onLit()
 		else:
-			StopAllCoroutines()
-			sparkRenderer.sprite = sparkSprites[0]
+			onUnlit()
+
+	def onLit():
+		pass
+
+	def onUnlit():
+		StopAllCoroutines()
+		sparkRenderer.sprite = sparkSprites[0]
+		handRenderer.sprite = handUnlit
 
 	def playSparks() as IEnumerator:
 		for sprite in sparkSprites:
