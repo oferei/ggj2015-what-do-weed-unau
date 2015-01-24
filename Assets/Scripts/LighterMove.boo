@@ -8,10 +8,17 @@ class LighterMove(MonoBehaviour):
 	public maxY as single = 1
 	public minY as single = 0.7
 	public speed as single = 3
+	public threshold as single = 0.6
 
 	shown as bool = false
 
+	lit = false
+
 	handAnimPos as single = 0.0
+
+	proximity as single:
+		get:
+			return (Mathf.InverseLerp(threshold, 1, handAnimPos) if lit else 0)
 
 	readyToLight as bool:
 		get:
@@ -48,16 +55,16 @@ class LighterMove(MonoBehaviour):
 	def Update():
 		for state as AnimationState in handController:
 			state.normalizedTime = Mathf.Clamp01(state.normalizedTime)
-			DebugScreen.logRow("hand.pos=" + state.normalizedTime.ToString("0.##"))
-			DebugScreen.logRow("hand.ready=$(readyToLight)")
+			# DebugScreen.logRow("hand.pos=" + state.normalizedTime.ToString("0.##"))
+			# DebugScreen.logRow("hand.ready=$(readyToLight)")
 
 		if shown:
-			if Input.GetMouseButton(0):
+			lit = Input.GetMouseButton(0)
+			if lit:
 				pos = Input.mousePosition.y / Screen.height
-				DebugScreen.logRow("pos=$(pos)")
-				t = Mathf.InverseLerp(maxY, minY, pos)
-				DebugScreen.logRow("t=$(t)")
-				desiredhandAnimPos = t
+				# DebugScreen.logRow("pos=$(pos)")
+				desiredhandAnimPos = Mathf.InverseLerp(maxY, minY, pos)
+				# DebugScreen.logRow("lighter.dpos=$(desiredhandAnimPos)")
 			else:
 				desiredhandAnimPos = 0
 		else:

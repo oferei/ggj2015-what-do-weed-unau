@@ -11,6 +11,11 @@ class Mic(MonoBehaviour):
 	public debugScreen as DebugScreen
 	public volumeBar as UI.Image
 
+	_volume as single = 0
+	volume:
+		get:
+			return _volume
+
 	clip as AudioClip
 
 	def Start():
@@ -33,6 +38,6 @@ class Mic(MonoBehaviour):
 
 			vol as single = Mathf.Clamp01(avg / maxInputAmp)
 			# debugScreen.logRow("mic.vol1=$(vol)")
-			vol = Mathf.Max(Mathf.Log(vol * 8, 2) / 3, 0)
-			# debugScreen.logRow("mic.vol=$(vol)")
-			volumeBar.transform.localScale.y = vol
+			_volume = Mathf.Max(Mathf.Log(vol * 8, 2) / 3, 0)
+			debugScreen.logRow("mic.vol=$(_volume)")
+			volumeBar.transform.localScale.y = _volume
