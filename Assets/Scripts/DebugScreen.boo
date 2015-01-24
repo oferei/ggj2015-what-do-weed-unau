@@ -20,14 +20,16 @@ class DebugScreen(MonoBehaviour):
 		builder.Append(str)
 
 	static def log(str as string):
-		instance._log(str)
+		if instance:
+			instance._log(str)
 
 	def _logRow(str as string):
 		log(str)
 		newlineAppended = true
 
 	static def logRow(str as string):
-		instance._logRow(str)
+		if instance:
+			instance._logRow(str)
 
 	def LateUpdate():
 		uiText.text = builder.ToString()
