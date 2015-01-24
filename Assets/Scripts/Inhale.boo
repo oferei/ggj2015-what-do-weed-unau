@@ -4,13 +4,24 @@ class Inhale(MonoBehaviour):
 
 	public breathDetect as BreathDetect
 	public lighterMove as LighterMove
-	public heatFactor as single = 1
+	public fanFactor as single = 1
+	public lighterFactor as single = 1
 	public chillFactor as single = 1
 
 	public flameSpriteRenderer as SpriteRenderer
 	public flameSprites as (Sprite)
+	public burnSpriteRenderer as SpriteRenderer
+	public burnSprites as (Sprite)
 
-	burnLevel as single = 0
+	_burnLevel as single = 0
+	burnLevel:
+		get:
+			return _burnLevel
+		set:
+			value = Mathf.Clamp01(value)
+			if _burnLevel != value:
+				_burnLevel = value
+				onBurnLevelChanged()
 
 	_inMode = false
 	protected inMode:
@@ -41,24 +52,32 @@ class Inhale(MonoBehaviour):
 
 	def FixedUpdate():
 		return if not inMode
+		updateFlame()
 		updateBurn()
 		updateSmoke()
 
-	def updateBurn():
-		increaseBurn()
-		decreaseBurn()
-		burnLevel = Mathf.Clamp01(burnLevel)
-
-	def increaseBurn():
-		breathFactor = breathDetect.strength
-		lighterFactor = Mathf.Lerp(1, 3, lighterMove.proximity)
-		flameSuction = breathFactor * lighterMove.proximity
-		heat = breathFactor * lighterFactor / 3
+	def updateFlame():
+		flameSuction = breathDetect.strength * lighterMove.proximity
 		if lighterMove.lit:
 			flameSpriteRenderer.sprite = flameSprites[flameSuction * flameSprites.Length]
 		else:
 			flameSpriteRenderer.sprite = null
-		burnLevel += heat * heatFactor * Time.deltaTime
+
+	def updateBurn():
+		increaseBurn()
+		decreaseBurn()
+
+	def onBurnLevelChanged():
+		index = Mathf.FloorToInt(Mathf.Min(burnLevel, 0.999) * burnSprites.Length)
+		burnSpriteRenderer.sprite = burnSprites[index]
+
+	def increaseBurn():
+		fanPower = (breathDetect.strength if burnLevel > 0 else 0) * fanFactor
+		lighterPower = breathDetect.strength * lighterMove.proximity * lighterFactor
+		DebugScreen.logRow("fan=$(fanPower)");
+		DebugScreen.logRow("lighter=$(lighterPower)");
+		heat = fanPower + lighterPower
+		burnLevel += heat * Time.deltaTime
 
 	def decreaseBurn():
 		burnLevel -= chillFactor * Time.deltaTime
