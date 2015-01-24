@@ -1,6 +1,6 @@
 ﻿import UnityEngine
 
-class Utils (MonoBehaviour): 
+class Utils(MonoBehaviour):
 
 	static def pickSprite(sprites as (Sprite), choice as single) as Sprite:
 		index = Mathf.FloorToInt(Mathf.Clamp01(choice) * sprites.Length)

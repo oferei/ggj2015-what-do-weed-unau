@@ -1,8 +1,8 @@
 ﻿import UnityEngine
 
-class RewindCamAnimation (MonoBehaviour): 
+class RewindCamAnimation(MonoBehaviour):
 
-	def Start ():
+	def Start():
 		animation.Play()
 		animation.Rewind()
 		animation.Sample()
