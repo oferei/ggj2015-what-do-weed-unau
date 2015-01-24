@@ -14,7 +14,12 @@ class LighterMove(MonoBehaviour):
 
 	shown as bool = false
 
-	lit = false
+	_lit = false
+	lit:
+		get:
+			return _lit
+		protected set:
+			_lit = value
 
 	handAnimPos as single = 0.0
 

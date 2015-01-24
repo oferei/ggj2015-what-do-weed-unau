@@ -52,8 +52,12 @@ class Inhale(MonoBehaviour):
 	def increaseBurn():
 		breathFactor = breathDetect.strength
 		lighterFactor = Mathf.Lerp(1, 3, lighterMove.proximity)
+		flameSuction = breathFactor * lighterMove.proximity
 		heat = breathFactor * lighterFactor / 3
-		flameSpriteRenderer.sprite = flameSprites[heat * 21]
+		if lighterMove.lit:
+			flameSpriteRenderer.sprite = flameSprites[flameSuction * flameSprites.Length]
+		else:
+			flameSpriteRenderer.sprite = null
 		burnLevel += heat * heatFactor * Time.deltaTime
 
 	def decreaseBurn():
