@@ -9332,7 +9332,7 @@ MonoBehaviour:
   fanFactor: 1
   lighterFactor: 1.5
   chillFactor: .699999988
-  offThreshold: .0500000007
+  offThreshold: .0299999993
   flameSpriteRenderer: {fileID: 1923456347}
   flameSprites:
   - {fileID: 21300000, guid: d5bd112461b77a241a923ff5665adf11, type: 3}
