@@ -8,7 +8,7 @@ class Tilt(MonoBehaviour):
 	public cameraTopAngle as single = 0
 	public cameraBottomAngle as single = 15
 	public cameraSmokeAngleThreshold as single = 13
-	public lighter as LighterShow
+	public lighter as LighterMove
 	public smoothTime as single = 2.0
 	public maxSpeed as single = 0.5
 

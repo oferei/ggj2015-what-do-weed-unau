@@ -2,30 +2,43 @@
 
 class LighterMove(MonoBehaviour):
 
-	public target as Transform
+	public handController as Animation
+	public hand as Animation
 
 	public maxY as single = 1
 	public minY as single = 0.7
 	public speed as single = 3
-	public insideAnimPos as single = 0.27
 
-	animPos as single = 0.0
+	_shown as bool = false
+	shown:
+		get:
+			return _shown
+		set:
+			if _shown != value:
+				_shown = value
+				onShownChanged()
 
-	lighterShow as LighterShow
+	handControllerAnimPos as single = 0.0
+	handAnimPos as single = 0.0
 
-	def Awake():
-		lighterShow = GetComponent[of LighterShow]()
+	# def Awake():
+	# 	handController.Play()
 
 	def Update():
-		if lighterShow.shown:
+		if shown:
 			if Input.GetMouseButton(0):
 				pos = Input.mousePosition.y / Screen.height
 				DebugScreen.logRow("pos=$(pos)")
 				t = Mathf.InverseLerp(maxY, minY, pos)
 				DebugScreen.logRow("t=$(t)")
-				desiredAnimPos = Mathf.Lerp(insideAnimPos, 1, t)
+				desiredhandAnimPos = t
 			else:
-				desiredAnimPos = insideAnimPos
+				desiredhandAnimPos = 0
 		else:
-			desiredAnimPos = 0
-		animPos = Mathf.Lerp(animPos, desiredAnimPos, speed * Time.deltaTime)
+			desiredhandAnimPos = 0
+		handAnimPos = Mathf.Lerp(handAnimPos, desiredhandAnimPos, speed * Time.deltaTime)
+
+	def onShownChanged():
+		Debug.Log("*** shown=" + shown)
+		if shown:
+			handController.Play()

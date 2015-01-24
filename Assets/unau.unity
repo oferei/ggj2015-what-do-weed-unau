@@ -335,7 +335,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &308021134
 Transform:
   m_ObjectHideFlags: 0
@@ -362,7 +362,7 @@ Animation:
   m_Animations:
   - {fileID: 7400000, guid: 06aee29c88b9ecd40bcde4b9c865ad3f, type: 2}
   m_WrapMode: 0
-  m_PlayAutomatically: 1
+  m_PlayAutomatically: 0
   m_AnimatePhysics: 0
   m_CullingType: 0
 --- !u!1 &369385543
@@ -645,33 +645,6 @@ Animation:
   m_PlayAutomatically: 1
   m_AnimatePhysics: 0
   m_CullingType: 0
---- !u!1 &991672612
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 991672613}
-  m_Layer: 0
-  m_Name: animation
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &991672613
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 991672612}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1139373841}
-  m_RootOrder: 0
 --- !u!1 &1059575179
 GameObject:
   m_ObjectHideFlags: 0
@@ -771,7 +744,6 @@ GameObject:
   m_Component:
   - 4: {fileID: 1139373841}
   - 114: {fileID: 1139373842}
-  - 114: {fileID: 1139373843}
   m_Layer: 0
   m_Name: Lighter
   m_TagString: Untagged
@@ -788,8 +760,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: .0930000022, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 991672613}
+  m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 6
 --- !u!114 &1139373842
@@ -803,22 +774,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8ce461883db044c385c1c2638d22fd0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 991672613}
-  maxY: 1
+  handController: {fileID: 308021135}
+  hand: {fileID: 1776770544}
+  maxY: .899999976
   minY: .699999988
   speed: 3
-  insideAnimPos: .270000011
---- !u!114 &1139373843
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1139373840}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a9d07d2fb8da44be5b27f362b75c3991, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1162476609
 GameObject:
   m_ObjectHideFlags: 0
@@ -1268,7 +1228,7 @@ MonoBehaviour:
   cameraTopAngle: 0
   cameraBottomAngle: 15
   cameraSmokeAngleThreshold: 13
-  lighter: {fileID: 1139373843}
+  lighter: {fileID: 0}
   smoothTime: .5
   maxSpeed: .800000012
   debugScreen: {fileID: 1681976785}
@@ -1564,7 +1524,7 @@ Animation:
   m_Animations:
   - {fileID: 7400000, guid: e51cb534b1b9aac4a9e627c27cf41d64, type: 2}
   m_WrapMode: 0
-  m_PlayAutomatically: 1
+  m_PlayAutomatically: 0
   m_AnimatePhysics: 0
   m_CullingType: 0
 --- !u!212 &1776770545
