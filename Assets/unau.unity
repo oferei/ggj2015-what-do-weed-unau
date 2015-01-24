@@ -3595,7 +3595,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &824887618
 Transform:
   m_ObjectHideFlags: 0
@@ -5040,7 +5040,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &943736477
 Transform:
   m_ObjectHideFlags: 0
@@ -6476,9 +6476,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   breathDetect: {fileID: 158802259}
   lighterMove: {fileID: 1139373842}
-  fanFactor: .300000012
-  lighterFactor: .300000012
-  chillFactor: .100000001
+  fanFactor: 1
+  lighterFactor: 1.5
+  chillFactor: .699999988
   flameSpriteRenderer: {fileID: 1923456347}
   flameSprites:
   - {fileID: 21300000, guid: d5bd112461b77a241a923ff5665adf11, type: 3}
@@ -7706,7 +7706,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1361126969
 Transform:
   m_ObjectHideFlags: 0
