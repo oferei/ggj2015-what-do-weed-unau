@@ -7657,7 +7657,7 @@ MonoBehaviour:
   threshold: .600000024
   handLightDelay: .0500000007
   ignitionDelay: .150000006
-  failureChance: .0500000007
+  ignitionFailureChance: .0500000007
 --- !u!1 &1162476609
 GameObject:
   m_ObjectHideFlags: 0
