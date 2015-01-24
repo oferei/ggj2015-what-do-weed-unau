@@ -11,6 +11,8 @@ class Inhale(MonoBehaviour):
 
 	public flameSpriteRenderer as SpriteRenderer
 	public flameSprites as (Sprite)
+	public flameFlickerDuration as single = 0.05
+	public flameFlickerChance as single = 0.5
 	public burnSpriteRenderer as SpriteRenderer
 	public burnSprites as (Sprite)
 
@@ -34,6 +36,7 @@ class Inhale(MonoBehaviour):
 				oninModeChanged()
 
 	offCheckEnabled = false
+	lastFlickerTime as single = 0
 
 	def OnEnable():
 		God.inst.hermes.listen(MessageMode, self)
@@ -49,6 +52,8 @@ class Inhale(MonoBehaviour):
 		pass
 
 	def Update():
+		return if not inMode
+		updateFlame()
 		DebugScreen.logRow("burn=$(burnLevel.ToString('0.##'))")
 	# 	DebugScreen.logRow("in:breath=$(breathDetect.strength)")
 	# 	DebugScreen.logRow("in:light=$(lighterMove.proximity.ToString('0.##'))")
@@ -56,14 +61,25 @@ class Inhale(MonoBehaviour):
 
 	def FixedUpdate():
 		return if not inMode
-		updateFlame()
 		updateBurn()
 		updateSmoke()
 
 	def updateFlame():
 		flameSuction = breathDetect.strength * lighterMove.proximity
 		if lighterMove.lit:
-			flameSpriteRenderer.sprite = flameSprites[flameSuction * flameSprites.Length]
+			# DebugScreen.logRow("suction=$(flameSuction.ToString('0.##'))")
+			now = Time.time
+			if lastFlickerTime:
+				if now - lastFlickerTime < flameFlickerDuration:
+					return
+				lastFlickerTime = 0
+			shoudFlicker = Random.value < flameFlickerChance
+			if shoudFlicker:
+				lastFlickerTime = now
+				choice = Mathf.Lerp(0.1, 1 - 0.1, flameSuction) + Random.Range(-0.1 cast single, 0.1)
+			else:
+				choice = flameSuction
+			flameSpriteRenderer.sprite = Utils.pickSprite(flameSprites, choice)
 		else:
 			flameSpriteRenderer.sprite = null
 
@@ -80,8 +96,7 @@ class Inhale(MonoBehaviour):
 				offCheckEnabled = true
 
 	def onBurnLevelChanged():
-		index = Mathf.FloorToInt(Mathf.Min(burnLevel, 0.999) * burnSprites.Length)
-		burnSpriteRenderer.sprite = burnSprites[index]
+		burnSpriteRenderer.sprite = Utils.pickSprite(burnSprites, burnLevel)
 
 	def increaseBurn():
 		fanPotential = Mathf.Clamp01(burnLevel * 2)

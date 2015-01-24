@@ -9363,6 +9363,8 @@ MonoBehaviour:
   - {fileID: 21300036, guid: d5bd112461b77a241a923ff5665adf11, type: 3}
   - {fileID: 21300038, guid: d5bd112461b77a241a923ff5665adf11, type: 3}
   - {fileID: 21300040, guid: d5bd112461b77a241a923ff5665adf11, type: 3}
+  flameFlickerDuration: .0399999991
+  flameFlickerChance: .5
   burnSpriteRenderer: {fileID: 1713370050}
   burnSprites:
   - {fileID: 21300000, guid: 83a40bbe86bc9f94fa2044c2b9c7da94, type: 3}
