@@ -4,6 +4,7 @@ class LighterMove(MonoBehaviour):
 
 	public handController as Animation
 	public hand as Animation
+	public spark as Animator
 
 	public maxY as single = 1
 	public minY as single = 0.7
@@ -59,7 +60,11 @@ class LighterMove(MonoBehaviour):
 			# DebugScreen.logRow("hand.ready=$(readyToLight)")
 
 		if shown:
-			lit = Input.GetMouseButton(0)
+			touch = Input.GetMouseButton(0)
+			if not lit and touch:
+				Debug.Log("*** spark")
+			# spark
+			lit = touch
 			if lit:
 				pos = Input.mousePosition.y / Screen.height
 				# DebugScreen.logRow("pos=$(pos)")
