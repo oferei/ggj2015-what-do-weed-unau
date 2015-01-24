@@ -7042,7 +7042,14 @@ MonoBehaviour:
   handController: {fileID: 308021135}
   hand1: {fileID: 789254121}
   hand2: {fileID: 1621612708}
-  spark: {fileID: 1887055831}
+  sparkRenderer: {fileID: 1887055832}
+  sparkSprites:
+  - {fileID: 21300008, guid: 9f036460f6c3b8e44bbe30cbe55de528, type: 3}
+  - {fileID: 21300000, guid: 9f036460f6c3b8e44bbe30cbe55de528, type: 3}
+  - {fileID: 21300002, guid: 9f036460f6c3b8e44bbe30cbe55de528, type: 3}
+  - {fileID: 21300004, guid: 9f036460f6c3b8e44bbe30cbe55de528, type: 3}
+  - {fileID: 21300006, guid: 9f036460f6c3b8e44bbe30cbe55de528, type: 3}
+  sparkFps: 24
   handRenderer: {fileID: 1776770545}
   handUnlit: {fileID: 21300000, guid: 4b0ed6f4ab8ac0147b8b66dfa68c9e2d, type: 3}
   handLit: {fileID: 21300000, guid: 343ac1033ecea4a40b18dc70651d05e5, type: 3}
@@ -12845,7 +12852,7 @@ Animator:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1887055829}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: cf21c37dcf972484790f7e9507d8a2da, type: 2}
   m_CullingMode: 0
