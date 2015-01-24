@@ -53,6 +53,18 @@ TagManager:
     userID: 3
     uniqueID: 3572796343
     locked: 0
+  - name: Pipe_Smoke
+    userID: 8
+    uniqueID: 4067310053
+    locked: 0
+  - name: Reflection
+    userID: 7
+    uniqueID: 3926875085
+    locked: 0
+  - name: Weed
+    userID: 6
+    uniqueID: 2392023857
+    locked: 0
   - name: Flame
     userID: 4
     uniqueID: 4180281039
