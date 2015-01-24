@@ -6456,6 +6456,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1191065415}
   - 114: {fileID: 1191065414}
+  - 114: {fileID: 1191065416}
   m_Layer: 0
   m_Name: Smoking
   m_TagString: Untagged
@@ -6479,6 +6480,7 @@ MonoBehaviour:
   fanFactor: 1
   lighterFactor: 1.5
   chillFactor: .699999988
+  offThreshold: .0500000007
   flameSpriteRenderer: {fileID: 1923456347}
   flameSprites:
   - {fileID: 21300000, guid: d5bd112461b77a241a923ff5665adf11, type: 3}
@@ -6527,6 +6529,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 11
+--- !u!114 &1191065416
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1191065413}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b10668a2f2924dc5a60295e8147def6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1219422123
 GameObject:
   m_ObjectHideFlags: 0
