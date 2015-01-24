@@ -84,7 +84,8 @@ class Inhale(MonoBehaviour):
 		burnSpriteRenderer.sprite = burnSprites[index]
 
 	def increaseBurn():
-		fanPower = (breathDetect.strength if burnLevel > 0 else 0) * fanFactor
+		fanPotential = Mathf.Clamp01(burnLevel * 2)
+		fanPower = breathDetect.strength * fanPotential * fanFactor
 		lighterPower = breathDetect.strength * lighterMove.proximity * lighterFactor
 		heat = fanPower + lighterPower
 		# if lighterMove.proximity:
