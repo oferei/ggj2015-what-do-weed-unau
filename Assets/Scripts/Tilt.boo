@@ -27,18 +27,19 @@ class Tilt(MonoBehaviour):
 				MessageSmokeMode(_smokeMode)
 
 	def Awake():
-		manualTilt = RuntimePlatform.WindowsEditor or Application.platform == RuntimePlatform.OSXEditor
+		manualTilt = Application.platform == RuntimePlatform.WindowsEditor or Application.platform == RuntimePlatform.OSXEditor
 
 	def Update():
 		if manualTilt:
 			smoothAngle = slider.value
-		# debugScreen.logRow("accel=$(Input.acceleration)")
-		debugScreen.logRow("tilt=$(Input.acceleration.y)")
-		actualAngle = Mathf.InverseLerp(bottomAngle, topAngle, Input.acceleration.y)
-		# actualAngle = Mathf.SmoothStep(0, 1, actualAngle)
-		# smoothAngle = Mathf.Lerp(smoothAngle, actualAngle, speed * Time.deltaTime)
-		slider.value = smoothAngle
-		smoothAngle = Mathf.SmoothDampAngle(smoothAngle, actualAngle, currentVelocity, smoothTime, maxSpeed)
+		else:
+			# debugScreen.logRow("accel=$(Input.acceleration)")
+			debugScreen.logRow("tilt=$(Input.acceleration.y)")
+			actualAngle = Mathf.InverseLerp(bottomAngle, topAngle, Input.acceleration.y)
+			debugScreen.logRow("actualAngle=$(actualAngle)")
+			smoothAngle = Mathf.SmoothDampAngle(smoothAngle, actualAngle, currentVelocity, smoothTime, maxSpeed)
+			debugScreen.logRow("smoothAngle=$(smoothAngle)")
+			slider.value = smoothAngle
 		cameraAngle = Mathf.Lerp(cameraBottomAngle, cameraTopAngle, smoothAngle)
 		Camera.main.transform.localEulerAngles.x = cameraAngle
 		smokeMode = cameraAngle >= cameraSmokeAngleThreshold
