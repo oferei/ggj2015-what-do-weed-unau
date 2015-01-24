@@ -1,0 +1,279 @@
+fileFormatVersion: 2
+guid: d5bd112461b77a241a923ff5665adf11
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: Fire_Sprite_0
+    21300002: Fire_Sprite_1
+    21300004: Fire_Sprite_2
+    21300006: Fire_Sprite_3
+    21300008: Fire_Sprite_4
+    21300010: Fire_Sprite_5
+    21300012: Fire_Sprite_6
+    21300014: Fire_Sprite_7
+    21300016: Fire_Sprite_8
+    21300018: Fire_Sprite_9
+    21300020: Fire_Sprite_10
+    21300022: Fire_Sprite_11
+    21300024: Fire_Sprite_12
+    21300026: Fire_Sprite_13
+    21300028: Fire_Sprite_14
+    21300030: Fire_Sprite_15
+    21300032: Fire_Sprite_16
+    21300034: Fire_Sprite_17
+    21300036: Fire_Sprite_18
+    21300038: Fire_Sprite_19
+    21300040: Fire_Sprite_20
+    21300042: Fire_Sprite_21
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  seamlessCubemap: 0
+  textureFormat: -3
+  maxTextureSize: 4096
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: Fire_Sprite_0
+      rect:
+        serializedVersion: 2
+        x: 852
+        y: 1146
+        width: 191
+        height: 182
+      alignment: 9
+      pivot: {x: .715450585, y: .693804085}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Fire_Sprite_1
+      rect:
+        serializedVersion: 2
+        x: 1081
+        y: 1134
+        width: 202
+        height: 194
+      alignment: 9
+      pivot: {x: .718269587, y: .696968019}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Fire_Sprite_2
+      rect:
+        serializedVersion: 2
+        x: 91
+        y: 912
+        width: 203
+        height: 189
+      alignment: 9
+      pivot: {x: .673754811, y: .764386833}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Fire_Sprite_3
+      rect:
+        serializedVersion: 2
+        x: 380
+        y: 912
+        width: 185
+        height: 195
+      alignment: 9
+      pivot: {x: .658883929, y: .741178393}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Fire_Sprite_4
+      rect:
+        serializedVersion: 2
+        x: 624
+        y: 903
+        width: 194
+        height: 204
+      alignment: 9
+      pivot: {x: .681815863, y: .773763597}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Fire_Sprite_5
+      rect:
+        serializedVersion: 2
+        x: 871
+        y: 926
+        width: 198
+        height: 199
+      alignment: 9
+      pivot: {x: .663298011, y: .7954126}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Fire_Sprite_6
+      rect:
+        serializedVersion: 2
+        x: 1063
+        y: 892
+        width: 225
+        height: 226
+      alignment: 9
+      pivot: {x: .709020734, y: .773125827}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Fire_Sprite_7
+      rect:
+        serializedVersion: 2
+        x: 75
+        y: 652
+        width: 180
+        height: 221
+      alignment: 9
+      pivot: {x: .695957005, y: .792605579}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Fire_Sprite_8
+      rect:
+        serializedVersion: 2
+        x: 369
+        y: 646
+        width: 177
+        height: 227
+      alignment: 9
+      pivot: {x: .666065276, y: .758974314}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Fire_Sprite_9
+      rect:
+        serializedVersion: 2
+        x: 608
+        y: 629
+        width: 177
+        height: 244
+      alignment: 9
+      pivot: {x: .632852137, y: .813209891}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Fire_Sprite_10
+      rect:
+        serializedVersion: 2
+        x: 852
+        y: 613
+        width: 174
+        height: 256
+      alignment: 9
+      pivot: {x: .635142684, y: .810009956}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Fire_Sprite_11
+      rect:
+        serializedVersion: 2
+        x: 1081
+        y: 618
+        width: 168
+        height: 245
+      alignment: 9
+      pivot: {x: .692457676, y: .811931491}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Fire_Sprite_12
+      rect:
+        serializedVersion: 2
+        x: 51
+        y: 327
+        width: 166
+        height: 252
+      alignment: 9
+      pivot: {x: .599248767, y: .826890707}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Fire_Sprite_13
+      rect:
+        serializedVersion: 2
+        x: 332
+        y: 303
+        width: 165
+        height: 274
+      alignment: 9
+      pivot: {x: .633133769, y: .840730071}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Fire_Sprite_14
+      rect:
+        serializedVersion: 2
+        x: 593
+        y: 303
+        width: 173
+        height: 289
+      alignment: 9
+      pivot: {x: .579360545, y: .85154897}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Fire_Sprite_15
+      rect:
+        serializedVersion: 2
+        x: 852
+        y: 297
+        width: 185
+        height: 295
+      alignment: 9
+      pivot: {x: .544527948, y: .844398856}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Fire_Sprite_16
+      rect:
+        serializedVersion: 2
+        x: 1096
+        y: 311
+        width: 192
+        height: 268
+      alignment: 9
+      pivot: {x: .514301956, y: .848358154}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Fire_Sprite_17
+      rect:
+        serializedVersion: 2
+        x: 75
+        y: 0
+        width: 206
+        height: 283
+      alignment: 9
+      pivot: {x: .470941484, y: .87016046}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Fire_Sprite_18
+      rect:
+        serializedVersion: 2
+        x: 350
+        y: 33
+        width: 215
+        height: 263
+      alignment: 9
+      pivot: {x: .472157896, y: .830027997}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Fire_Sprite_19
+      rect:
+        serializedVersion: 2
+        x: 629
+        y: 22
+        width: 223
+        height: 274
+      alignment: 9
+      pivot: {x: .41947028, y: .838625491}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Fire_Sprite_20
+      rect:
+        serializedVersion: 2
+        x: 875
+        y: 0
+        width: 226
+        height: 273
+      alignment: 9
+      pivot: {x: .42053926, y: .861792624}
+      border: {x: 0, y: 0, z: 0, w: 0}
+  spritePackingTag: 
+  userData: 
