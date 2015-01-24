@@ -6587,7 +6587,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &943736477
 Transform:
   m_ObjectHideFlags: 0
@@ -6926,6 +6926,8 @@ GameObject:
   m_Component:
   - 4: {fileID: 1099253530}
   - 212: {fileID: 1099253531}
+  - 95: {fileID: 1099253532}
+  - 111: {fileID: 1099253533}
   m_Layer: 0
   m_Name: Unau_Face
   m_TagString: Untagged
@@ -6940,7 +6942,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1099253529}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -.0299999993, y: -.0599999987, z: -.129999995}
+  m_LocalPosition: {x: -.226999998, y: -.00999999978, z: -.129999995}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1361553465}
@@ -6968,6 +6970,36 @@ SpriteRenderer:
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: fef5a7b1f9f2a11429ef52e655aba406, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
+--- !u!95 &1099253532
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1099253529}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 2566d7fb186b6214bb421bb248c3a1c2, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 1
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+--- !u!111 &1099253533
+Animation:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1099253529}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 0}
+  m_Animations:
+  - {fileID: 0}
+  m_WrapMode: 0
+  m_PlayAutomatically: 0
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!1 &1139373840
 GameObject:
   m_ObjectHideFlags: 0
@@ -10536,7 +10568,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1361126969
 Transform:
   m_ObjectHideFlags: 0
@@ -10592,6 +10624,7 @@ Animation:
   m_Animation: {fileID: 7400000, guid: 790382eba5fe5b94195b2926698ca4b7, type: 2}
   m_Animations:
   - {fileID: 7400000, guid: 790382eba5fe5b94195b2926698ca4b7, type: 2}
+  - {fileID: 0}
   m_WrapMode: 0
   m_PlayAutomatically: 1
   m_AnimatePhysics: 0
