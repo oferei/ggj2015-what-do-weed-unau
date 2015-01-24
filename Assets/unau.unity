@@ -5309,8 +5309,8 @@ MonoBehaviour:
   hand1: {fileID: 789254121}
   hand2: {fileID: 1621612708}
   spark: {fileID: 1887055831}
-  maxY: .649999976
-  minY: .449999988
+  maxY: .670000017
+  minY: .579999983
   speed: 15
   threshold: .600000024
 --- !u!1 &1162476609
