@@ -21,10 +21,41 @@ class LighterMove(MonoBehaviour):
 	handControllerAnimPos as single = 0.0
 	handAnimPos as single = 0.0
 
-	# def Awake():
-	# 	handController.Play()
+	def Awake():
+		rewind()
+
+	def rewind():
+		handController.wrapMode = WrapMode.ClampForever
+		handController.Play()
+		handController.Rewind()
+		for state as AnimationState in handController:
+			state.speed = 0
+
+		hand.wrapMode = WrapMode.ClampForever
+		hand.Play()
+		hand.Rewind()
+		for state as AnimationState in hand:
+			state.speed = 0
+
+	def OnEnable():
+		God.inst.hermes.listen(MessageSmokeMode, self)
+	def OnDisable():
+		God.inst.hermes.stopListening(MessageSmokeMode, self)
+
+	def OnMsgSmokeMode(msg as MessageSmokeMode):
+		Debug.Log("Hand: Received a smoke-mode message: ${msg.enabled}")
+		if msg.enabled:
+			for state as AnimationState in handController:
+				state.speed = 1
+		else:
+			for state as AnimationState in handController:
+				state.speed = -1
 
 	def Update():
+		for state as AnimationState in handController:
+			state.normalizedTime = Mathf.Clamp01(state.normalizedTime)
+			DebugScreen.logRow("hand.pos=$(state.normalizedTime)")
+
 		if shown:
 			if Input.GetMouseButton(0):
 				pos = Input.mousePosition.y / Screen.height
@@ -42,3 +73,5 @@ class LighterMove(MonoBehaviour):
 		Debug.Log("*** shown=" + shown)
 		if shown:
 			handController.Play()
+		# else:
+		# 	handController.
