@@ -16,6 +16,7 @@ class LighterMove(MonoBehaviour):
 	public minY as single = 0.7
 	public speed as single = 3
 	public threshold as single = 0.6
+	public ignitionDelay as single = 0.150
 
 	shown as bool = false
 
@@ -79,13 +80,15 @@ class LighterMove(MonoBehaviour):
 			# DebugScreen.logRow("hand1.ready=$(readyToLight)")
 
 		if shown:
-			lit = Input.GetMouseButton(0)
-			if lit:
+			if Input.GetMouseButton(0):
+				if Input.GetMouseButtonDown(0):
+					ignite()
 				pos = Input.mousePosition.y / Screen.height
 				# DebugScreen.logRow("pos=$(pos)")
 				desiredhandAnimPos = Mathf.InverseLerp(maxY, minY, pos)
 				# DebugScreen.logRow("lighter.dpos=$(desiredhandAnimPos)")
 			else:
+				lit = false
 				desiredhandAnimPos = 0
 		else:
 			desiredhandAnimPos = 0
@@ -95,11 +98,18 @@ class LighterMove(MonoBehaviour):
 		for state as AnimationState in hand2:
 			state.normalizedTime = handAnimPos
 
+	def ignite():
+		StopAllCoroutines()
+		StartCoroutine(playSparks())
+		Invoke("onIgnite", ignitionDelay)
+
+	def onIgnite():
+		lit = true
+
 	def onLitChanged():
 		handRenderer.sprite = (handLit if lit else handUnlit)
 		if lit:
-			StopAllCoroutines()
-			StartCoroutine(playSparks())
+			pass
 		else:
 			StopAllCoroutines()
 			sparkRenderer.sprite = sparkSprites[0]
