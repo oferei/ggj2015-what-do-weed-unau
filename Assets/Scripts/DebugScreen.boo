@@ -7,18 +7,27 @@ class DebugScreen(MonoBehaviour):
 	uiText as UI.Text
 	newlineAppended = false
 
+	static instance as DebugScreen
+
 	def Awake():
 		uiText = GetComponent[of UI.Text]()
+		instance = self
 
-	def log(str as string):
+	def _log(str as string):
 		if newlineAppended:
 			builder.Append("\n")
 			newlineAppended = false
 		builder.Append(str)
 
-	def logRow(str as string):
+	static def log(str as string):
+		instance._log(str)
+
+	def _logRow(str as string):
 		log(str)
 		newlineAppended = true
+
+	static def logRow(str as string):
+		instance._logRow(str)
 
 	def LateUpdate():
 		uiText.text = builder.ToString()
