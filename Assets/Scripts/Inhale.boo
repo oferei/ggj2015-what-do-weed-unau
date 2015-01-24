@@ -74,8 +74,6 @@ class Inhale(MonoBehaviour):
 	def increaseBurn():
 		fanPower = (breathDetect.strength if burnLevel > 0 else 0) * fanFactor
 		lighterPower = breathDetect.strength * lighterMove.proximity * lighterFactor
-		DebugScreen.logRow("fan=$(fanPower)");
-		DebugScreen.logRow("lighter=$(lighterPower)");
 		heat = fanPower + lighterPower
 		burnLevel += heat * Time.deltaTime
 
