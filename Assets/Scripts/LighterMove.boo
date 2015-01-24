@@ -9,17 +9,14 @@ class LighterMove(MonoBehaviour):
 	public minY as single = 0.7
 	public speed as single = 3
 
-	_shown as bool = false
-	shown:
-		get:
-			return _shown
-		set:
-			if _shown != value:
-				_shown = value
-				onShownChanged()
+	shown as bool = false
 
-	handControllerAnimPos as single = 0.0
 	handAnimPos as single = 0.0
+
+	readyToLight as bool:
+		get:
+			for state as AnimationState in handController:
+				return state.normalizedTime > 0.99
 
 	def Awake():
 		rewind()
@@ -44,13 +41,15 @@ class LighterMove(MonoBehaviour):
 
 	def OnMsgSmokeMode(msg as MessageSmokeMode):
 		# Debug.Log("Hand: Received a smoke-mode message: ${msg.enabled}")
+		shown = msg.enabled
 		for state as AnimationState in handController:
 			state.speed = (1 if msg.enabled else -1)
 
 	def Update():
 		for state as AnimationState in handController:
 			state.normalizedTime = Mathf.Clamp01(state.normalizedTime)
-			# DebugScreen.logRow("hand.pos=$(state.normalizedTime)")
+			DebugScreen.logRow("hand.pos=" + state.normalizedTime.ToString("0.##"))
+			DebugScreen.logRow("hand.ready=$(readyToLight)")
 
 		if shown:
 			if Input.GetMouseButton(0):
@@ -64,10 +63,5 @@ class LighterMove(MonoBehaviour):
 		else:
 			desiredhandAnimPos = 0
 		handAnimPos = Mathf.Lerp(handAnimPos, desiredhandAnimPos, speed * Time.deltaTime)
-
-	def onShownChanged():
-		Debug.Log("*** shown=" + shown)
-		if shown:
-			handController.Play()
-		# else:
-		# 	handController.
+		for state as AnimationState in hand:
+			state.normalizedTime = handAnimPos

@@ -788,8 +788,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   handController: {fileID: 308021135}
   hand: {fileID: 1776770544}
-  maxY: .899999976
-  minY: .699999988
+  maxY: .649999976
+  minY: .449999988
   speed: 3
 --- !u!1 &1162476609
 GameObject:
