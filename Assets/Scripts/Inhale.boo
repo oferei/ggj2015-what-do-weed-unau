@@ -7,6 +7,9 @@ class Inhale(MonoBehaviour):
 	public heatFactor as single = 1
 	public chillFactor as single = 1
 
+	public flameSpriteRenderer as SpriteRenderer
+	public flameSprites as (Sprite)
+
 	burnLevel as single = 0
 
 	_inMode = false
@@ -28,7 +31,8 @@ class Inhale(MonoBehaviour):
 		inMode = msg.mode == GameMode.Mode.Inhale
 
 	def oninModeChanged():
-		Debug.Log("*** inhaling=$(inMode)")
+		# Debug.Log("*** inhaling=$(inMode)")
+		pass
 
 	def Update():
 		DebugScreen.logRow("in:breath=$(breathDetect.strength)")
@@ -49,6 +53,7 @@ class Inhale(MonoBehaviour):
 		breathFactor = breathDetect.strength
 		lighterFactor = Mathf.Lerp(1, 3, lighterMove.proximity)
 		heat = breathFactor * lighterFactor / 3
+		flameSpriteRenderer.sprite = flameSprites[heat * 20]
 		burnLevel += heat * heatFactor * Time.deltaTime
 
 	def decreaseBurn():

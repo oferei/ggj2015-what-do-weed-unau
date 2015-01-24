@@ -1221,6 +1221,29 @@ MonoBehaviour:
   lighterMove: {fileID: 1139373842}
   heatFactor: 1
   chillFactor: .100000001
+  flameSpriteRenderer: {fileID: 1923456347}
+  flameSprites:
+  - {fileID: 21300000, guid: d5bd112461b77a241a923ff5665adf11, type: 3}
+  - {fileID: 21300002, guid: d5bd112461b77a241a923ff5665adf11, type: 3}
+  - {fileID: 21300004, guid: d5bd112461b77a241a923ff5665adf11, type: 3}
+  - {fileID: 21300006, guid: d5bd112461b77a241a923ff5665adf11, type: 3}
+  - {fileID: 21300008, guid: d5bd112461b77a241a923ff5665adf11, type: 3}
+  - {fileID: 21300010, guid: d5bd112461b77a241a923ff5665adf11, type: 3}
+  - {fileID: 21300012, guid: d5bd112461b77a241a923ff5665adf11, type: 3}
+  - {fileID: 21300014, guid: d5bd112461b77a241a923ff5665adf11, type: 3}
+  - {fileID: 21300016, guid: d5bd112461b77a241a923ff5665adf11, type: 3}
+  - {fileID: 21300018, guid: d5bd112461b77a241a923ff5665adf11, type: 3}
+  - {fileID: 21300020, guid: d5bd112461b77a241a923ff5665adf11, type: 3}
+  - {fileID: 21300022, guid: d5bd112461b77a241a923ff5665adf11, type: 3}
+  - {fileID: 21300024, guid: d5bd112461b77a241a923ff5665adf11, type: 3}
+  - {fileID: 21300026, guid: d5bd112461b77a241a923ff5665adf11, type: 3}
+  - {fileID: 21300028, guid: d5bd112461b77a241a923ff5665adf11, type: 3}
+  - {fileID: 21300030, guid: d5bd112461b77a241a923ff5665adf11, type: 3}
+  - {fileID: 21300032, guid: d5bd112461b77a241a923ff5665adf11, type: 3}
+  - {fileID: 21300034, guid: d5bd112461b77a241a923ff5665adf11, type: 3}
+  - {fileID: 21300036, guid: d5bd112461b77a241a923ff5665adf11, type: 3}
+  - {fileID: 21300038, guid: d5bd112461b77a241a923ff5665adf11, type: 3}
+  - {fileID: 21300040, guid: d5bd112461b77a241a923ff5665adf11, type: 3}
 --- !u!4 &1191065415
 Transform:
   m_ObjectHideFlags: 0
@@ -3389,13 +3412,13 @@ Animation:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1923456344}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Animation: {fileID: 0}
   m_Animations:
   - {fileID: 0}
   m_WrapMode: 2
-  m_PlayAutomatically: 1
+  m_PlayAutomatically: 0
   m_AnimatePhysics: 0
   m_CullingType: 0
 --- !u!212 &1923456347
@@ -3427,7 +3450,7 @@ Animator:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1923456344}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 1c277f779d3fdfd44ad13f16898ddfd9, type: 2}
   m_CullingMode: 0
