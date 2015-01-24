@@ -28,7 +28,7 @@ class Inhale(MonoBehaviour):
 		inMode = msg.mode == GameMode.Mode.Inhale
 
 	def oninModeChanged():
-		Debug.Log("*** inMode=$(inMode)")
+		Debug.Log("*** inhaling=$(inMode)")
 
 	def Update():
 		DebugScreen.logRow("in:breath=$(breathDetect.strength)")
@@ -36,6 +36,7 @@ class Inhale(MonoBehaviour):
 		DebugScreen.logRow("in:burn=$(burnLevel.ToString('0.##'))")
 
 	def FixedUpdate():
+		return if not inMode
 		updateBurn()
 		updateSmoke()
 
