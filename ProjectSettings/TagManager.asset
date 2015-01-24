@@ -57,3 +57,7 @@ TagManager:
     userID: 4
     uniqueID: 4180281039
     locked: 0
+  - name: Smoke
+    userID: 5
+    uniqueID: 2132916487
+    locked: 0
