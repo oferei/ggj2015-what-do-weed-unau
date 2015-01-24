@@ -111,12 +111,13 @@ class LighterMove(MonoBehaviour):
 		if shown:
 			touch = Input.GetMouseButton(0)
 			if not lit and touch:
-				Debug.Log("*** spark")
+				# Debug.Log("*** spark")
+				pass
 				# spark.Play("Spark")
 				# spark.StartPlayback()
-				stateInfo = spark.GetCurrentAnimatorStateInfo(0)
-				Debug.Log("*** stateInfo=$(stateInfo) length=$(stateInfo.length)")
-				spark.CrossFade("Sparks", 0f)
+				# stateInfo = spark.GetCurrentAnimatorStateInfo(0)
+				# Debug.Log("*** stateInfo=$(stateInfo) length=$(stateInfo.length)")
+				# spark.CrossFade("Sparks", 0f)
 				# settrigger
 				# Animator.StringToHash('Jump')
 

@@ -34,10 +34,10 @@ class Inhale(MonoBehaviour):
 		# Debug.Log("*** inhaling=$(inMode)")
 		pass
 
-	def Update():
-		DebugScreen.logRow("in:breath=$(breathDetect.strength)")
-		DebugScreen.logRow("in:light=$(lighterMove.proximity.ToString('0.##'))")
-		DebugScreen.logRow("in:burn=$(burnLevel.ToString('0.##'))")
+	# def Update():
+	# 	DebugScreen.logRow("in:breath=$(breathDetect.strength)")
+	# 	DebugScreen.logRow("in:light=$(lighterMove.proximity.ToString('0.##'))")
+	# 	DebugScreen.logRow("in:burn=$(burnLevel.ToString('0.##'))")
 
 	def FixedUpdate():
 		return if not inMode
@@ -53,7 +53,7 @@ class Inhale(MonoBehaviour):
 		breathFactor = breathDetect.strength
 		lighterFactor = Mathf.Lerp(1, 3, lighterMove.proximity)
 		heat = breathFactor * lighterFactor / 3
-		flameSpriteRenderer.sprite = flameSprites[heat * 20]
+		flameSpriteRenderer.sprite = flameSprites[heat * 21]
 		burnLevel += heat * heatFactor * Time.deltaTime
 
 	def decreaseBurn():
