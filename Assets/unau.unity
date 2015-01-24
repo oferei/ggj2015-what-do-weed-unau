@@ -1202,7 +1202,7 @@ MonoBehaviour:
   cameraTopAngle: 0
   cameraBottomAngle: 15
   cameraSmokeAngleThreshold: 13
-  lighter: {fileID: 0}
+  lighter: {fileID: 1139373842}
   smoothTime: .5
   maxSpeed: .800000012
   debugScreen: {fileID: 1681976785}
