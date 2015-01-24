@@ -7,6 +7,7 @@ class Inhale(MonoBehaviour):
 	public fanFactor as single = 1
 	public lighterFactor as single = 1
 	public chillFactor as single = 1
+	public offThreshold as single = 0.01
 
 	public flameSpriteRenderer as SpriteRenderer
 	public flameSprites as (Sprite)
@@ -32,6 +33,8 @@ class Inhale(MonoBehaviour):
 				_inMode = value
 				oninModeChanged()
 
+	offCheckEnabled = false
+
 	def OnEnable():
 		God.inst.hermes.listen(MessageMode, self)
 	def OnDisable():
@@ -45,7 +48,8 @@ class Inhale(MonoBehaviour):
 		# Debug.Log("*** inhaling=$(inMode)")
 		pass
 
-	# def Update():
+	def Update():
+		DebugScreen.logRow("burn=$(burnLevel.ToString('0.##'))")
 	# 	DebugScreen.logRow("in:breath=$(breathDetect.strength)")
 	# 	DebugScreen.logRow("in:light=$(lighterMove.proximity.ToString('0.##'))")
 	# 	DebugScreen.logRow("in:burn=$(burnLevel.ToString('0.##'))")
@@ -67,6 +71,14 @@ class Inhale(MonoBehaviour):
 		increaseBurn()
 		decreaseBurn()
 
+		if offCheckEnabled:
+			if burnLevel < offThreshold:
+				offCheckEnabled = false
+				burnLevel = 0
+		else:
+			if burnLevel > offThreshold:
+				offCheckEnabled = true
+
 	def onBurnLevelChanged():
 		index = Mathf.FloorToInt(Mathf.Min(burnLevel, 0.999) * burnSprites.Length)
 		burnSpriteRenderer.sprite = burnSprites[index]
@@ -74,13 +86,14 @@ class Inhale(MonoBehaviour):
 	def increaseBurn():
 		fanPower = (breathDetect.strength if burnLevel > 0 else 0) * fanFactor
 		lighterPower = breathDetect.strength * lighterMove.proximity * lighterFactor
-		DebugScreen.logRow("fan=$(fanPower)");
-		DebugScreen.logRow("lighter=$(lighterPower)");
 		heat = fanPower + lighterPower
+		# if lighterMove.proximity:
+		# 	Debug.Log("*** fanPower=$(fanPower) lighterPower=$(lighterPower)")
 		burnLevel += heat * Time.deltaTime
 
 	def decreaseBurn():
 		burnLevel -= chillFactor * burnLevel * Time.deltaTime
+		# Debug.Log("*** chillFactor=$(chillFactor) chillFactor * burnLevel=$(chillFactor * burnLevel)")
 
 	def updateSmoke():
 		pass
