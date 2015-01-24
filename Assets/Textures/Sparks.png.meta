@@ -1,0 +1,102 @@
+fileFormatVersion: 2
+guid: 9f036460f6c3b8e44bbe30cbe55de528
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: Sparks_1
+    21300002: Sparks_2
+    21300004: Sparks_3
+    21300006: Sparks_4
+    21300008: Sparks_0
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  seamlessCubemap: 0
+  textureFormat: -3
+  maxTextureSize: 1024
+  textureSettings:
+    filterMode: -1
+    aniso: 1
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: Sparks_1
+      rect:
+        serializedVersion: 2
+        x: 97
+        y: 399
+        width: 159
+        height: 159
+      alignment: 9
+      pivot: {x: .535302401, y: .552954137}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Sparks_2
+      rect:
+        serializedVersion: 2
+        x: 278
+        y: 329
+        width: 311
+        height: 305
+      alignment: 9
+      pivot: {x: .536097169, y: .573614597}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Sparks_3
+      rect:
+        serializedVersion: 2
+        x: 47
+        y: 106
+        width: 231
+        height: 231
+      alignment: 9
+      pivot: {x: .518224418, y: .603271484}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Sparks_4
+      rect:
+        serializedVersion: 2
+        x: 318
+        y: 0
+        width: 291
+        height: 291
+      alignment: 9
+      pivot: {x: .581978261, y: .591623127}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Sparks_0
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 579
+        width: 46
+        height: 36
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+  spritePackingTag: 
+  userData: 
