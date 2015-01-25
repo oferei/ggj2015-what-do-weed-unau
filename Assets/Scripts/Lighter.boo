@@ -1,6 +1,6 @@
 ﻿import UnityEngine
 
-class LighterMove(MonoBehaviour):
+class Lighter(MonoBehaviour):
 
 	public handController as Animation
 	public hand1 as Animation

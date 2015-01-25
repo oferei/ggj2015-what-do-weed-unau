@@ -5541,7 +5541,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 976310142}
-  m_RootOrder: 8
+  m_RootOrder: 7
 --- !u!1 &789254119
 GameObject:
   m_ObjectHideFlags: 0
@@ -7347,8 +7347,8 @@ Transform:
   - {fileID: 1443089255}
   - {fileID: 1059575181}
   - {fileID: 1602044924}
-  - {fileID: 1139373841}
   - {fileID: 788607798}
+  - {fileID: 1139373841}
   - {fileID: 1191065415}
   - {fileID: 1635553647}
   m_Father: {fileID: 0}
@@ -7626,7 +7626,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 976310142}
-  m_RootOrder: 7
+  m_RootOrder: 8
 --- !u!114 &1139373842
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9937,7 +9937,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   breathDetect: {fileID: 158802259}
-  lighterMove: {fileID: 1139373842}
+  lighter: {fileID: 0}
   fanFactor: 1
   lighterFactor: 1.5
   chillFactor: .699999988

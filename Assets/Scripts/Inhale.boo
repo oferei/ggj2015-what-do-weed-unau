@@ -3,7 +3,7 @@
 class Inhale(MonoBehaviour):
 
 	public breathDetect as BreathDetect
-	public lighterMove as LighterMove
+	public lighter as Lighter
 	public fanFactor as single = 1
 	public lighterFactor as single = 1
 	public chillFactor as single = 1
@@ -61,7 +61,7 @@ class Inhale(MonoBehaviour):
 		updateFlame()
 		DebugScreen.logRow("burn=$(burnLevel.ToString('0.##'))")
 	# 	DebugScreen.logRow("in:breath=$(breathDetect.strength)")
-	# 	DebugScreen.logRow("in:light=$(lighterMove.proximity.ToString('0.##'))")
+	# 	DebugScreen.logRow("in:light=$(lighter.proximity.ToString('0.##'))")
 	# 	DebugScreen.logRow("in:burn=$(burnLevel.ToString('0.##'))")
 
 	def FixedUpdate():
@@ -70,8 +70,8 @@ class Inhale(MonoBehaviour):
 		updateSmoke()
 
 	def updateFlame():
-		flameSuction = breathDetect.strength * lighterMove.proximity
-		if lighterMove.lit:
+		flameSuction = breathDetect.strength * lighter.proximity
+		if lighter.lit:
 			# DebugScreen.logRow("suction=$(flameSuction.ToString('0.##'))")
 			now = Time.time
 			if lastFlickerTime:
@@ -106,9 +106,9 @@ class Inhale(MonoBehaviour):
 	def increaseBurn():
 		fanPotential = Mathf.Clamp01(burnLevel * 2)
 		fanPower = breathDetect.strength * fanPotential * fanFactor
-		lighterPower = breathDetect.strength * lighterMove.proximity * lighterFactor
+		lighterPower = breathDetect.strength * lighter.proximity * lighterFactor
 		heat = fanPower + lighterPower
-		# if lighterMove.proximity:
+		# if lighter.proximity:
 		# 	Debug.Log("*** fanPower=$(fanPower) lighterPower=$(lighterPower)")
 		burnLevel += heat * Time.deltaTime
 
