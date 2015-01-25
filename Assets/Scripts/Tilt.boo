@@ -8,6 +8,7 @@ class Tilt(MonoBehaviour):
 	public cameraTopAngle as single = 0
 	public cameraBottomAngle as single = 15
 	public cameraSmokeAngleThreshold as single = 13
+	public cameraUnsmokeAngleThreshold as single = 10
 	public smoothTime as single = 2.0
 	public maxSpeed as single = 0.5
 
@@ -23,6 +24,8 @@ class Tilt(MonoBehaviour):
 
 	_smokeMode = false
 	smokeMode:
+		get:
+			return _smokeMode
 		set:
 			if _smokeMode != value:
 				_smokeMode = value
@@ -59,5 +62,6 @@ class Tilt(MonoBehaviour):
 
 		cameraAngle = Mathf.Lerp(cameraBottomAngle, cameraTopAngle, smoothAngle)
 		Camera.main.transform.localEulerAngles.x = cameraAngle
-		
-		smokeMode = _inhaleMode and cameraAngle >= cameraSmokeAngleThreshold
+
+		threshold = (cameraUnsmokeAngleThreshold if smokeMode else cameraSmokeAngleThreshold)
+		smokeMode = _inhaleMode and cameraAngle >= threshold

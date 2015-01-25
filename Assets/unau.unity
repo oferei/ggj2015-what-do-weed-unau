@@ -12248,6 +12248,7 @@ MonoBehaviour:
   cameraTopAngle: 0
   cameraBottomAngle: 15
   cameraSmokeAngleThreshold: 13
+  cameraUnsmokeAngleThreshold: 10
   smoothTime: .5
   maxSpeed: .800000012
   debugScreen: {fileID: 1681976785}
