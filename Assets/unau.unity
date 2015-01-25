@@ -7740,7 +7740,7 @@ MonoBehaviour:
   maxY: .670000017
   minY: .579999983
   speed: 15
-  threshold: .600000024
+  threshold: .100000001
   handLightDelay: .0500000007
   ignitionDelay: .150000006
   ignitionFailureChance: .0500000007
@@ -10022,8 +10022,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   breathDetect: {fileID: 158802259}
   lighter: {fileID: 1139373842}
-  fanFactor: 1
-  lighterFactor: 1.5
+  fanFactor: .699999988
+  lighterFactor: 1
   chillFactor: .699999988
   offThreshold: .100000001
   flameSpriteRenderer: {fileID: 1923456347}
