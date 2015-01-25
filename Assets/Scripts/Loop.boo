@@ -3,11 +3,15 @@
 class Loop (MonoBehaviour): 
 
 	public skipIntro = false
+	public delayAfterIntro as single = 2.0
 	public logoObject as GameObject
 	public StartObject as GameObject
-	public delayAfterIntro as single = 2.0
+	public speechBubble as GameObject
+	public welcomeTexts as (GameObject)
+	public coughTexts as (GameObject)
+	public successTexts as (GameObject)
 
-	_currentMode = GameMode.Intro
+	_currentMode = GameMode.Undefined
 	currentMode:
 		get:
 			return _currentMode
@@ -21,6 +25,7 @@ class Loop (MonoBehaviour):
 	lastMode = GameMode.Undefined
 
 	def Awake():
+		currentMode = GameMode.Intro
 		doSkipIntro()
 
 	def doSkipIntro():
@@ -35,6 +40,8 @@ class Loop (MonoBehaviour):
 
 	def onModeChanged():
 		MessageMode(currentMode)
+
+		speechBubble.SetActive(currentMode == GameMode.Dialogue)
 
 		if currentMode == GameMode.Intro:
 			onModeIntro()
@@ -55,7 +62,20 @@ class Loop (MonoBehaviour):
 		pass
 
 	def onModeDialogue():
-		currentMode = GameMode.Inhale
+		# Debug.Log("*** dialogue: last=$(lastMode)")
+		hideAllTexts()
+		if lastMode == GameMode.Intro:
+			welcomeTexts[0].SetActive(true)
+		elif lastMode == GameMode.Cough:
+			index = Random.Range(0, coughTexts.Length)
+			coughTexts[index].SetActive(true)
+		elif lastMode == GameMode.Exhale:
+			index = Random.Range(0, successTexts.Length)
+			successTexts[index].SetActive(true)
+
+	def hideAllTexts():
+		for obj in welcomeTexts + coughTexts + successTexts:
+			obj.SetActive(false)
 
 	def onModeInhale():
 		pass
@@ -74,8 +94,17 @@ class Loop (MonoBehaviour):
 		if anim.camera:
 			Invoke("onIntroDone", delayAfterIntro)
 
+	def onWelcomeDone():
+		currentMode = GameMode.Inhale
+
+	def onCoughDone():
+		currentMode = GameMode.Inhale
+
+	def onSuccessDone():
+		currentMode = GameMode.Inhale
+
 	def onCough():
 		currentMode = GameMode.Cough
 
 	def onDoneCoughing():
-		currentMode = GameMode.Inhale
+		currentMode = GameMode.Dialogue
