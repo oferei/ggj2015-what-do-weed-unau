@@ -9980,6 +9980,16 @@ MonoBehaviour:
   - {fileID: 21300016, guid: 83a40bbe86bc9f94fa2044c2b9c7da94, type: 3}
   - {fileID: 21300018, guid: 83a40bbe86bc9f94fa2044c2b9c7da94, type: 3}
   - {fileID: 21300020, guid: 83a40bbe86bc9f94fa2044c2b9c7da94, type: 3}
+  smokeParticleSystem: {fileID: 426188173}
+  smokeVelocities:
+  - -.100000001
+  - .5
+  smokeEmissionRates:
+  - 2
+  - 12
+  smokeTintAlphas:
+  - .270000011
+  - 1
 --- !u!4 &1191065415
 Transform:
   m_ObjectHideFlags: 0

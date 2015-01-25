@@ -16,6 +16,11 @@ class Inhale(MonoBehaviour):
 	public burnSpriteRenderer as SpriteRenderer
 	public burnSprites as (Sprite)
 
+	public smokeParticleSystem as ParticleSystem
+	public smokeVelocities as (single)
+	public smokeEmissionRates as (single)
+	public smokeTintAlphas as (single)
+
 	_burnLevel as single = 0
 	burnLevel:
 		get:
@@ -112,4 +117,15 @@ class Inhale(MonoBehaviour):
 		# Debug.Log("*** chillFactor=$(chillFactor) chillFactor * burnLevel=$(chillFactor * burnLevel)")
 
 	def updateSmoke():
-		pass
+		smokeParticleSystem.emissionRate = Mathf.Lerp(smokeEmissionRates[0], smokeEmissionRates[1], burnLevel)
+		# Debug.Log("smokeParticleSystem.renderer.material.shader=$(smokeParticleSystem.renderer.material.shader)")
+		smokeParticleSystem.startColor.a = Mathf.Lerp(smokeTintAlphas[0], smokeTintAlphas[1], burnLevel)
+
+		particles = array(ParticleSystem.Particle, smokeParticleSystem.particleCount)
+		count = smokeParticleSystem.GetParticles(particles)
+		# Debug.Log("smokeParticleSystem.particleCount=$(smokeParticleSystem.particleCount) count=$(count)")
+		velocity = Mathf.Lerp(smokeVelocities[0], smokeVelocities[1], breathDetect.strength)
+		for particle in particles:
+			age = 1 - (particle.lifetime / particle.startLifetime)
+			particle.velocity.z = age * velocity
+		smokeParticleSystem.SetParticles(particles, count)
