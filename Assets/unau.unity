@@ -13115,8 +13115,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b801111f01b7c4434a277449adf44b51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skipIntro: 1
-  skipWelcome: 1
+  skipIntro: 0
+  skipWelcome: 0
   skipInhale: 0
   delayAfterIntro: 2
   logoObject: {fileID: 793289411}
