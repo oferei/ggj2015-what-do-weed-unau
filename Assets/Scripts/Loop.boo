@@ -9,6 +9,7 @@ class Loop (MonoBehaviour):
 	public speechBubble as GameObject
 	public welcomeTexts as (GameObject)
 	public coughTexts as (GameObject)
+	public holdTexts as (GameObject)
 	public successTexts as (GameObject)
 
 	_currentMode = GameMode.Undefined
@@ -23,6 +24,8 @@ class Loop (MonoBehaviour):
 				onModeChanged()
 
 	lastMode = GameMode.Undefined
+
+	nextSuccessText as int = 0
 
 	def Awake():
 		currentMode = GameMode.Intro
@@ -69,12 +72,15 @@ class Loop (MonoBehaviour):
 		elif lastMode == GameMode.Cough:
 			index = Random.Range(0, coughTexts.Length)
 			coughTexts[index].SetActive(true)
+		elif lastMode == GameMode.Hold:
+			holdTexts[0].SetActive(true)
 		elif lastMode == GameMode.Exhale:
-			index = Random.Range(0, successTexts.Length)
-			successTexts[index].SetActive(true)
+			Debug.Log("*** nextSuccessText=$(nextSuccessText)")
+			successTexts[nextSuccessText].SetActive(true)
+			nextSuccessText = (nextSuccessText + 1) % successTexts.Length
 
 	def hideAllTexts():
-		for obj in welcomeTexts + coughTexts + successTexts:
+		for obj in welcomeTexts + coughTexts + holdTexts + successTexts:
 			obj.SetActive(false)
 
 	def onModeInhale():
@@ -84,7 +90,7 @@ class Loop (MonoBehaviour):
 		pass
 
 	def onModeHold():
-		currentMode = GameMode.Exhale
+		currentMode = GameMode.Dialogue
 
 	def onModeExhale():
 		currentMode = GameMode.Dialogue
@@ -94,13 +100,16 @@ class Loop (MonoBehaviour):
 		if anim.camera:
 			Invoke("onIntroDone", delayAfterIntro)
 
-	def onWelcomeDone():
+	def onWelcomeTextDone():
 		currentMode = GameMode.Inhale
 
-	def onCoughDone():
+	def onCoughTextDone():
 		currentMode = GameMode.Inhale
 
-	def onSuccessDone():
+	def onHoldTextDone():
+		currentMode = GameMode.Exhale
+
+	def onSuccessTextDone():
 		currentMode = GameMode.Inhale
 
 	def onLungsFull():
