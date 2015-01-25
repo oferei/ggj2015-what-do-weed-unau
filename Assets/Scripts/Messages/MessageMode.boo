@@ -5,7 +5,7 @@ class MessageMode(Message):
 	mode:
 		get:
 			return _mode
-	_mode as GameMode.Mode
+	_mode as GameMode
  
 	def constructor(mode):
  

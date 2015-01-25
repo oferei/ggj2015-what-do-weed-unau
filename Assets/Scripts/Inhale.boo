@@ -50,7 +50,7 @@ class Inhale(MonoBehaviour):
 
 	def OnMsgMode(msg as MessageMode):
 		# Debug.Log("mode: ${msg.mode}")
-		inMode = msg.mode == GameMode.Mode.Inhale
+		inMode = msg.mode == GameMode.Inhale
 
 	def oninModeChanged():
 		# Debug.Log("*** inhaling=$(inMode)")
