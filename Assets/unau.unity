@@ -7497,7 +7497,7 @@ MonoBehaviour:
   gameloop: {fileID: 1814950288}
   particles: {fileID: 1185816797}
   maxSmokeTime: 6.4000001
-  stillBlowingTime: 9
+  stillBlowingTime: 7
   extraTime: 5
 --- !u!114 &915162489
 MonoBehaviour:
