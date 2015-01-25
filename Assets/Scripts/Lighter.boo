@@ -93,6 +93,7 @@ class Lighter(MonoBehaviour):
 				lit = false
 				desiredhandAnimPos = 0
 		else:
+			lit = false
 			desiredhandAnimPos = 0
 		handAnimPos = Mathf.Lerp(handAnimPos, desiredhandAnimPos, speed * Time.deltaTime)
 		for state as AnimationState in hand1:
