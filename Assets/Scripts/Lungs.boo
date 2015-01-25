@@ -78,7 +78,7 @@ class Lungs(MonoBehaviour):
 
 	def updateBar():
 		full as single = (totalSmokeCount cast single) / maxCapacity
-		DebugScreen.logRow("lungs=$(totalSmokeCount) ($((full * 100).ToString('0.#'))%)")
+		# DebugScreen.logRow("lungs=$(totalSmokeCount) ($((full * 100).ToString('0.#'))%)")
 		# DebugScreen.logRow("smoke=$(totalSmokeCount/Time.timeSinceLevelLoad)")
 		desiredValue = Mathf.Lerp(emptyValue, fullValue, full)
 		barMask.offsetMax.y = Mathf.SmoothDamp(barMask.offsetMax.y, desiredValue, barCurrentVelocity, barSmoothTime, barMaxSpeed)

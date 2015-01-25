@@ -61,7 +61,7 @@ class Inhale(MonoBehaviour):
 	def Update():
 		return if not inMode
 		updateFlame()
-		DebugScreen.logRow("burn=$(burnLevel.ToString('0.##'))")
+		# DebugScreen.logRow("burn=$(burnLevel.ToString('0.##'))")
 	# 	DebugScreen.logRow("in:breath=$(breathDetect.strength)")
 	# 	DebugScreen.logRow("in:light=$(lighter.proximity.ToString('0.##'))")
 	# 	DebugScreen.logRow("in:burn=$(burnLevel.ToString('0.##'))")

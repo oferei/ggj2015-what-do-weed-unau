@@ -14,4 +14,4 @@ class BreathDetect(MonoBehaviour):
 
 	def Update ():
 		_strength = Mathf.InverseLerp(minVolume, maxVolume, mic.volume)
-		DebugScreen.logRow("breath=$(strength)")
+		# DebugScreen.logRow("breath=$(strength)")
