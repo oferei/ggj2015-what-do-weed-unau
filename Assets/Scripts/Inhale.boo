@@ -67,7 +67,6 @@ class Inhale(MonoBehaviour):
 	# 	DebugScreen.logRow("in:burn=$(burnLevel.ToString('0.##'))")
 
 	def FixedUpdate():
-		return if not inMode
 		updateBurn()
 		updateSmoke()
 
@@ -91,7 +90,8 @@ class Inhale(MonoBehaviour):
 			flameSpriteRenderer.sprite = null
 
 	def updateBurn():
-		increaseBurn()
+		if inMode:
+			increaseBurn()
 		decreaseBurn()
 
 		if offCheckEnabled:
@@ -126,7 +126,10 @@ class Inhale(MonoBehaviour):
 		particles = array(ParticleSystem.Particle, smokeParticleSystem.particleCount)
 		count = smokeParticleSystem.GetParticles(particles)
 		# Debug.Log("smokeParticleSystem.particleCount=$(smokeParticleSystem.particleCount) count=$(count)")
-		velocity = Mathf.Lerp(smokeVelocities[0], smokeVelocities[1], breathDetect.strength)
+		if inMode:
+			velocity = Mathf.Lerp(smokeVelocities[0], smokeVelocities[1], breathDetect.strength)
+		else:
+			velocity = smokeVelocities[0]
 		for particle in particles:
 			age = 1 - (particle.lifetime / particle.startLifetime)
 			particle.velocity.z = age * velocity
