@@ -17,7 +17,7 @@ class Lungs(MonoBehaviour):
 		++count
 
 	def Update():
-		# DebugScreen.logRow("smoke=$(count) t=$(Time.timeSinceLevelLoad)")
+		DebugScreen.logRow("lungs=$(count)")
 		# DebugScreen.logRow("smoke=$(count/Time.timeSinceLevelLoad)")
 		full as single = (count cast single) / maxCapacity
 		# DebugScreen.logRow("full=$(full)")
