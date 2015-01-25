@@ -7422,6 +7422,7 @@ MonoBehaviour:
   particles: {fileID: 824887621}
   sound: {fileID: 8300000, guid: 330934ef9a1d949368d8cd916bdb5dd7, type: 3}
   duration: 5
+  pattern: 320000001d0100005a000000e1000000a50000008c000000bd0100006400000010270000
 --- !u!82 &915162487
 AudioSource:
   m_ObjectHideFlags: 0
