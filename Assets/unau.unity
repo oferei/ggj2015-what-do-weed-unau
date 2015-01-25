@@ -9982,10 +9982,10 @@ MonoBehaviour:
   - {fileID: 21300020, guid: 83a40bbe86bc9f94fa2044c2b9c7da94, type: 3}
   smokeParticleSystem: {fileID: 426188173}
   smokeVelocities:
-  - -.100000001
-  - .5
+  - -.200000003
+  - .699999988
   smokeEmissionRates:
-  - 2
+  - 0
   - 12
   smokeTintAlphas:
   - .270000011
