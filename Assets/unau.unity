@@ -7182,6 +7182,9 @@ MonoBehaviour:
   maxCapacity: 400
   barMask: {fileID: 926011623}
   emptyValue: -1324
+  fullValue: -354
+  barSmoothTime: .300000012
+  barMaxSpeed: 100
 --- !u!23 &915162483
 Renderer:
   m_ObjectHideFlags: 0
