@@ -7179,12 +7179,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b10668a2f2924dc5a60295e8147def6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxCapacity: 400
+  maxCapacity: 80
   barMask: {fileID: 926011623}
   emptyValue: -1324
   fullValue: -354
-  barSmoothTime: .300000012
+  barSmoothTime: .5
   barMaxSpeed: 100
+  depleteDelay: 2
+  depleteRate: 2
 --- !u!23 &915162483
 Renderer:
   m_ObjectHideFlags: 0
