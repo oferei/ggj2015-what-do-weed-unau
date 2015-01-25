@@ -84,10 +84,10 @@ class Loop (MonoBehaviour):
 		pass
 
 	def onModeHold():
-		pass
+		currentMode = GameMode.Exhale
 
 	def onModeExhale():
-		pass
+		currentMode = GameMode.Dialogue
 
 	def onAnimationEnd(anim as Animation):
 		# Debug.Log("*** animation ended: anim=$(anim)")
