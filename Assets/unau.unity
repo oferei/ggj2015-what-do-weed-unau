@@ -13092,6 +13092,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skipIntro: 1
+  skipWelcome: 0
   delayAfterIntro: 2
   logoObject: {fileID: 793289411}
   StartObject: {fileID: 852513019}

@@ -3,6 +3,7 @@
 class Loop (MonoBehaviour): 
 
 	public skipIntro = false
+	public skipWelcome = false
 	public delayAfterIntro as single = 2.0
 	public logoObject as GameObject
 	public StartObject as GameObject
@@ -68,20 +69,34 @@ class Loop (MonoBehaviour):
 		# Debug.Log("*** dialogue: last=$(lastMode)")
 		hideAllTexts()
 		if lastMode == GameMode.Intro:
-			welcomeTexts[0].SetActive(true)
+			showWelcomeText()
 		elif lastMode == GameMode.Cough:
-			index = Random.Range(0, coughTexts.Length)
-			coughTexts[index].SetActive(true)
+			showCoughText()
 		elif lastMode == GameMode.Hold:
-			holdTexts[0].SetActive(true)
+			showHoldText()
 		elif lastMode == GameMode.Exhale:
-			Debug.Log("*** nextSuccessText=$(nextSuccessText)")
-			successTexts[nextSuccessText].SetActive(true)
-			nextSuccessText = (nextSuccessText + 1) % successTexts.Length
+			showSuccessText()
 
 	def hideAllTexts():
 		for obj in welcomeTexts + coughTexts + holdTexts + successTexts:
 			obj.SetActive(false)
+
+	def showWelcomeText():
+		if skipWelcome:
+			onWelcomeTextDone()
+		else:
+			welcomeTexts[0].SetActive(true)
+
+	def showCoughText():
+		index = Random.Range(0, coughTexts.Length)
+		coughTexts[index].SetActive(true)
+
+	def showHoldText():
+		holdTexts[0].SetActive(true)
+
+	def showSuccessText():
+		successTexts[nextSuccessText].SetActive(true)
+		nextSuccessText = (nextSuccessText + 1) % successTexts.Length
 
 	def onModeInhale():
 		pass
