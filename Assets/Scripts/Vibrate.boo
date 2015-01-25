@@ -14,7 +14,8 @@ class Vibrate(MonoBehaviour):
 		set:
 			_strength = value
 			if _strength > 0:
-				InvokeRepeating("vibrate", 0, updateInterval)
+				if not IsInvoking():
+					InvokeRepeating("vibrate", 0, updateInterval)
 			else:
 				CancelInvoke()
 				Vibration.Cancel()
@@ -28,5 +29,5 @@ class Vibrate(MonoBehaviour):
 
 	def vibrate():
 		pattern[OFF] = Mathf.Lerp(300, 100, strength) # off
-		DebugScreen.logRow("vibrate=$(strength) off=$(pattern[OFF])")
+		# DebugScreen.logRow("vibrate=$(strength) off=$(pattern[OFF])")
 		Vibration.Vibrate(pattern, 0)
