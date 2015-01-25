@@ -2,8 +2,11 @@
 
 class Lungs(MonoBehaviour):
 
-	def Start ():
-		pass
-	
-	def Update ():
-		pass
+	count as int = 0
+
+	def OnParticleCollision(other as GameObject):
+		++count
+
+	def Update():
+		DebugScreen.logRow("smoke=$(count) t=$(Time.timeSinceLevelLoad)")
+		DebugScreen.logRow("smoke=$(count/Time.timeSinceLevelLoad)")
