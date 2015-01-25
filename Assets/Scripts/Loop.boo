@@ -3,6 +3,7 @@
 class Loop (MonoBehaviour): 
 
 	public skipIntro = false
+	public delayAfterIntro as single = 2.0
 
 	_currentMode = GameMode.Intro
 	currentMode:
@@ -28,7 +29,7 @@ class Loop (MonoBehaviour):
 		onIntroDone()
 
 	def onIntroDone():
-		currentMode = GameMode.Inhale
+		currentMode = GameMode.Dialogue
 
 	def onModeChanged():
 		MessageMode(currentMode)
@@ -52,7 +53,7 @@ class Loop (MonoBehaviour):
 		pass
 
 	def onModeDialogue():
-		pass
+		currentMode = GameMode.Inhale
 
 	def onModeInhale():
 		pass
@@ -65,6 +66,11 @@ class Loop (MonoBehaviour):
 
 	def onModeExhale():
 		pass
+
+	def onAnimationEnd(anim as Animation):
+		# Debug.Log("*** animation ended: anim=$(anim)")
+		if anim.camera:
+			Invoke("onIntroDone", delayAfterIntro)
 
 	def onCough():
 		currentMode = GameMode.Cough
