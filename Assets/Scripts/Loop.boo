@@ -84,10 +84,10 @@ class Loop (MonoBehaviour):
 		pass
 
 	def onModeHold():
-		pass
+		currentMode = GameMode.Exhale
 
 	def onModeExhale():
-		pass
+		currentMode = GameMode.Dialogue
 
 	def onAnimationEnd(anim as Animation):
 		# Debug.Log("*** animation ended: anim=$(anim)")
@@ -102,6 +102,9 @@ class Loop (MonoBehaviour):
 
 	def onSuccessDone():
 		currentMode = GameMode.Inhale
+
+	def onLungsFull():
+		currentMode = GameMode.Hold
 
 	def onCough():
 		currentMode = GameMode.Cough

@@ -25,6 +25,8 @@ class Lungs(MonoBehaviour):
 			return _totalSmokeCount
 		set:
 			_totalSmokeCount = Mathf.Clamp(value, 0, maxCapacity)
+			if _totalSmokeCount >= maxCapacity:
+				gameloop.onLungsFull()
 
 	barCurrentVelocity as single = 0
 
