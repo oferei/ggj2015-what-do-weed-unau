@@ -7180,13 +7180,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxCapacity: 80
+  depleteDelay: 2
+  depleteRate: 2
   barMask: {fileID: 926011623}
   emptyValue: -1324
   fullValue: -354
   barSmoothTime: .5
   barMaxSpeed: 100
-  depleteDelay: 2
-  depleteRate: 2
 --- !u!23 &915162483
 Renderer:
   m_ObjectHideFlags: 0
