@@ -9937,7 +9937,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   breathDetect: {fileID: 158802259}
-  lighter: {fileID: 0}
+  lighter: {fileID: 1139373842}
   fanFactor: 1
   lighterFactor: 1.5
   chillFactor: .699999988
