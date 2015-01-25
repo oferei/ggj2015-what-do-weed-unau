@@ -7510,7 +7510,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7690c345cc014670adad6987f01b5ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  updateInterval: .5
+  maxOff: 500
+  minOff: 100
 --- !u!1 &915992255
 GameObject:
   m_ObjectHideFlags: 0
