@@ -13069,6 +13069,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1814950287}
   - 114: {fileID: 1814950288}
+  - 114: {fileID: 1814950289}
   m_Layer: 0
   m_Name: Game loop
   m_TagString: Untagged
@@ -13123,6 +13124,17 @@ MonoBehaviour:
   - {fileID: 254816803}
   realityAlterations:
   - {fileID: 309162542}
+--- !u!114 &1814950289
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1814950286}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cdbb095cdf75d42c8a55207318ded812, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1816511753
 GameObject:
   m_ObjectHideFlags: 0
