@@ -128,4 +128,7 @@ class Inhale(MonoBehaviour):
 		for particle in particles:
 			age = 1 - (particle.lifetime / particle.startLifetime)
 			particle.velocity.z = age * velocity
+			# Debug.Log("*** particle.position.z=$(particle.position.z)")
+			# if particle.position.z < 0.1:
+			# 	particle.position.y -= 2 * Time.deltaTime
 		smokeParticleSystem.SetParticles(particles, count)

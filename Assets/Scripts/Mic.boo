@@ -39,5 +39,5 @@ class Mic(MonoBehaviour):
 			vol as single = Mathf.Clamp01(avg / maxInputAmp)
 			# debugScreen.logRow("mic.vol1=$(vol)")
 			_volume = Mathf.Max(Mathf.Log(vol * 8, 2) / 3, 0)
-			debugScreen.logRow("mic.vol=$(_volume)")
+			# debugScreen.logRow("mic.vol=$(_volume)")
 			volumeBar.transform.localScale.y = _volume
