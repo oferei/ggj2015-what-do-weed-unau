@@ -2,9 +2,9 @@
 
 class Loop (MonoBehaviour): 
 
-	public initialMode = GameMode.Intro
+	public skipIntro = false
 
-	_currentMode = GameMode.Undefined
+	_currentMode = GameMode.Intro
 	currentMode:
 		get:
 			return _currentMode
@@ -17,8 +17,18 @@ class Loop (MonoBehaviour):
 
 	lastMode = GameMode.Undefined
 
-	def Start():
-		currentMode = initialMode
+	def Awake():
+		doSkipIntro()
+
+	def doSkipIntro():
+		return unless skipIntro
+		Camera.main.GetComponent[of RewindCamAnimation]().enabled = false
+		GameObject.Find('/UI/Logo').SetActive(false)
+		GameObject.Find('/UI/Start').SetActive(false)
+		onIntroDone()
+
+	def onIntroDone():
+		currentMode = GameMode.Inhale
 
 	def onModeChanged():
 		MessageMode(currentMode)
@@ -39,7 +49,7 @@ class Loop (MonoBehaviour):
 			Debug.LogError("Unknown mode: $(currentMode)")
 
 	def onModeIntro():
-		currentMode = GameMode.Inhale
+		pass
 
 	def onModeDialogue():
 		pass
