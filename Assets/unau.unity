@@ -10067,10 +10067,10 @@ MonoBehaviour:
   smokeParticleSystem: {fileID: 426188173}
   smokeVelocities:
   - -.200000003
-  - .699999988
+  - 1
   smokeEmissionRates:
   - 0
-  - 12
+  - 9
   smokeTintAlphas:
   - .270000011
   - 1
