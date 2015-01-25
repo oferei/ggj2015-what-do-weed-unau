@@ -5643,19 +5643,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 781595090}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1814950288}
-        m_MethodName: onHoldTextDone
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine, Version=0.0.0.0,
-            Culture=neutral, PublicKeyToken=null
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &781595090
@@ -7334,6 +7322,7 @@ GameObject:
   - 114: {fileID: 915162482}
   - 114: {fileID: 915162486}
   - 82: {fileID: 915162487}
+  - 114: {fileID: 915162488}
   m_Layer: 8
   m_Name: Lungs
   m_TagString: Untagged
@@ -7364,7 +7353,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b10668a2f2924dc5a60295e8147def6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxCapacity: 1
+  maxCapacity: 50
   monitorPeriod: 2
   maxIntake: 18
   depleteDelay: 2
@@ -7489,6 +7478,25 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
+--- !u!114 &915162488
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 915162480}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b9d9c4647f8644edba8d704bc9e7fd0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  monitorPeriod: 1
+  threshold: .5
+  breathDetect: {fileID: 158802259}
+  gameloop: {fileID: 1814950288}
+  particles: {fileID: 1185816797}
+  maxSmokeTime: 6.4000001
+  stillBlowingTime: 9
+  extraTime: 5
 --- !u!1 &915992255
 GameObject:
   m_ObjectHideFlags: 0
@@ -13113,6 +13121,8 @@ MonoBehaviour:
   - {fileID: 1621882097}
   - {fileID: 153342440}
   - {fileID: 254816803}
+  realityAlterations:
+  - {fileID: 309162542}
 --- !u!1 &1816511753
 GameObject:
   m_ObjectHideFlags: 0

@@ -13,6 +13,7 @@ class Loop (MonoBehaviour):
 	public coughTexts as (GameObject)
 	public holdTexts as (GameObject)
 	public successTexts as (GameObject)
+	public realityAlterations as (GameObject)
 
 	_currentMode = GameMode.Undefined
 	currentMode:
@@ -46,7 +47,7 @@ class Loop (MonoBehaviour):
 	def onModeChanged():
 		MessageMode(currentMode)
 
-		speechBubble.SetActive(currentMode == GameMode.Dialogue)
+		speechBubble.SetActive(currentMode == GameMode.Dialogue or currentMode == GameMode.Exhale)
 
 		if currentMode == GameMode.Intro:
 			onModeIntro()
@@ -94,6 +95,7 @@ class Loop (MonoBehaviour):
 
 	def showHoldText():
 		holdTexts[0].SetActive(true)
+		currentMode = GameMode.Exhale
 
 	def showSuccessText():
 		successTexts[nextSuccessText].SetActive(true)
@@ -110,7 +112,7 @@ class Loop (MonoBehaviour):
 		currentMode = GameMode.Dialogue
 
 	def onModeExhale():
-		currentMode = GameMode.Dialogue
+		pass
 
 	def onAnimationEnd(anim as Animation):
 		# Debug.Log("*** animation ended: anim=$(anim)")
@@ -129,11 +131,21 @@ class Loop (MonoBehaviour):
 	def onSuccessTextDone():
 		currentMode = GameMode.Inhale
 
-	def onLungsFull():
-		currentMode = GameMode.Hold
-
 	def onCough():
 		currentMode = GameMode.Cough
 
 	def onDoneCoughing():
+		currentMode = GameMode.Dialogue
+
+	def onLungsFull():
+		currentMode = GameMode.Hold
+
+	def onExhaleObscuresEverything():
+		speechBubble.SetActive(false)
+		alterReality()
+
+	def alterReality():
+		realityAlterations[0].SetActive(true)
+
+	def onExhaleDone():
 		currentMode = GameMode.Dialogue
