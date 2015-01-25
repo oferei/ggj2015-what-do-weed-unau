@@ -7,7 +7,7 @@ AnimationClip:
   m_PrefabInternal: {fileID: 0}
   m_Name: Flame_Head_Animation
   serializedVersion: 4
-  m_AnimationType: 2
+  m_AnimationType: 1
   m_Compressed: 0
   m_UseHighQualityCurve: 1
   m_RotationCurves: []
@@ -69,35 +69,8 @@ AnimationClip:
     m_Center: {x: 0, y: 0, z: 0}
     m_Extent: {x: 0, y: 0, z: 0}
   m_ClipBindingConstant:
-    genericBindings:
-    - path: 0
-      attribute: 0
-      script: {fileID: 0}
-      classID: 212
-      customType: 23
-      isPPtrCurve: 1
-    pptrCurveMapping:
-    - {fileID: 21300002, guid: d5bd112461b77a241a923ff5665adf11, type: 3}
-    - {fileID: 21300004, guid: d5bd112461b77a241a923ff5665adf11, type: 3}
-    - {fileID: 21300006, guid: d5bd112461b77a241a923ff5665adf11, type: 3}
-    - {fileID: 21300008, guid: d5bd112461b77a241a923ff5665adf11, type: 3}
-    - {fileID: 21300010, guid: d5bd112461b77a241a923ff5665adf11, type: 3}
-    - {fileID: 21300012, guid: d5bd112461b77a241a923ff5665adf11, type: 3}
-    - {fileID: 21300014, guid: d5bd112461b77a241a923ff5665adf11, type: 3}
-    - {fileID: 21300016, guid: d5bd112461b77a241a923ff5665adf11, type: 3}
-    - {fileID: 21300018, guid: d5bd112461b77a241a923ff5665adf11, type: 3}
-    - {fileID: 21300020, guid: d5bd112461b77a241a923ff5665adf11, type: 3}
-    - {fileID: 21300022, guid: d5bd112461b77a241a923ff5665adf11, type: 3}
-    - {fileID: 21300024, guid: d5bd112461b77a241a923ff5665adf11, type: 3}
-    - {fileID: 21300026, guid: d5bd112461b77a241a923ff5665adf11, type: 3}
-    - {fileID: 21300028, guid: d5bd112461b77a241a923ff5665adf11, type: 3}
-    - {fileID: 21300030, guid: d5bd112461b77a241a923ff5665adf11, type: 3}
-    - {fileID: 21300032, guid: d5bd112461b77a241a923ff5665adf11, type: 3}
-    - {fileID: 21300034, guid: d5bd112461b77a241a923ff5665adf11, type: 3}
-    - {fileID: 21300036, guid: d5bd112461b77a241a923ff5665adf11, type: 3}
-    - {fileID: 21300038, guid: d5bd112461b77a241a923ff5665adf11, type: 3}
-    - {fileID: 21300040, guid: d5bd112461b77a241a923ff5665adf11, type: 3}
-    - {fileID: 0}
+    genericBindings: []
+    pptrCurveMapping: []
   m_AnimationClipSettings:
     serializedVersion: 2
     m_StartTime: 0
