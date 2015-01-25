@@ -14,6 +14,7 @@ class Lungs(MonoBehaviour):
 	public fullValue as single = -354
 	public barSmoothTime as single = 0.5
 	public barMaxSpeed as single = 1
+	public gameloop as Loop
 	public lighter as Lighter
 
 	desiredValue as single = emptyValue
@@ -71,7 +72,7 @@ class Lungs(MonoBehaviour):
 			totalSmokeCount = 0
 			lastIntakes.Clear()
 			Debug.Log("You took too much man, you took too much, too much!")
-			MessageYouTookTooMuchMan()
+			gameloop.onCough()
 
 	def updateBar():
 		full as single = (totalSmokeCount cast single) / maxCapacity
