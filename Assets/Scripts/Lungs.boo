@@ -3,13 +3,13 @@
 class Lungs(MonoBehaviour):
 
 	public maxCapacity as int = 1000
+	public depleteDelay as single = 2.0
+	public depleteRate as single = 1
 	public barMask as RectTransform
 	public emptyValue as single = -1324
 	public fullValue as single = -354
 	public barSmoothTime as single = 0.5
 	public barMaxSpeed as single = 1
-	public depleteDelay as single = 2.0
-	public depleteRate as single = 1
 
 	desiredValue as single = emptyValue
 
