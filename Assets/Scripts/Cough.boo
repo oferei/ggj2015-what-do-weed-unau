@@ -28,6 +28,7 @@ class Cough (MonoBehaviour):
 		audio.clip = sound
 		audio.Play()
 		particles.gameObject.SetActive(true)
+		yield # to allow lungs to stop vibrating
 		Vibration.Vibrate(patternAsLongs, 0)
 		yield WaitForSeconds(duration)
 		particles.gameObject.SetActive(false)
