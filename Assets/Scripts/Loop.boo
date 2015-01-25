@@ -4,6 +4,7 @@ class Loop (MonoBehaviour):
 
 	public skipIntro = false
 	public skipWelcome = false
+	public skipInhale = false
 	public delayAfterIntro as single = 2.0
 	public logoObject as GameObject
 	public StartObject as GameObject
@@ -99,7 +100,8 @@ class Loop (MonoBehaviour):
 		nextSuccessText = (nextSuccessText + 1) % successTexts.Length
 
 	def onModeInhale():
-		pass
+		if skipInhale:
+			currentMode = GameMode.Hold
 
 	def onModeCough():
 		pass
