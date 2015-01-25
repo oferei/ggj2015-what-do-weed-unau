@@ -3,6 +3,8 @@
 class Loop (MonoBehaviour): 
 
 	public skipIntro = false
+	public logoObject as GameObject
+	public StartObject as GameObject
 	public delayAfterIntro as single = 2.0
 
 	_currentMode = GameMode.Intro
@@ -22,11 +24,11 @@ class Loop (MonoBehaviour):
 		doSkipIntro()
 
 	def doSkipIntro():
-		return unless skipIntro
-		Camera.main.GetComponent[of RewindCamAnimation]().enabled = false
-		GameObject.Find('/UI/Logo').SetActive(false)
-		GameObject.Find('/UI/Start').SetActive(false)
-		onIntroDone()
+		Camera.main.GetComponent[of RewindCamAnimation]().enabled = not skipIntro
+		logoObject.SetActive(not skipIntro)
+		StartObject.SetActive(not skipIntro)
+		if skipIntro:
+			onIntroDone()
 
 	def onIntroDone():
 		currentMode = GameMode.Dialogue
