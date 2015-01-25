@@ -1,15 +1,20 @@
 ﻿import UnityEngine
+import System.Collections
 
 class Lungs(MonoBehaviour):
 
 	public maxCapacity as int = 1000
+	public monitorPeriod as single = 2
+	public maxIntake as int = 10
 	public depleteDelay as single = 2.0
 	public depleteRate as single = 1
+	public barObject as GameObject
 	public barMask as RectTransform
 	public emptyValue as single = -1324
 	public fullValue as single = -354
 	public barSmoothTime as single = 0.5
 	public barMaxSpeed as single = 1
+	public lighter as Lighter
 
 	desiredValue as single = emptyValue
 
@@ -25,11 +30,15 @@ class Lungs(MonoBehaviour):
 	lastInput as single = 0
 	toDeplete as single = 0
 
+	lastIntakes = Generic.Queue[of single]()
+
 	def Awake():
 		barMask.offsetMax.y = desiredValue
 
 	def OnParticleCollision(other as GameObject):
-		lastInput = Time.time
+		now = Time.time
+		lastIntakes.Enqueue(now)
+		lastInput = now
 		++totalSmokeCount
 
 	def FixedUpdate():
@@ -40,6 +49,22 @@ class Lungs(MonoBehaviour):
 				toDeplete -= Mathf.Floor(toDeplete)
 
 	def Update():
+		barObject.SetActive(lighter.readyToLight)
+		monitorIntake()
+		updateBar()
+
+	def monitorIntake():
+		earliestIntakeTime = Time.time - monitorPeriod
+		while lastIntakes.Count > 0 and lastIntakes.Peek() < earliestIntakeTime:
+			lastIntakes.Dequeue()
+		intake = lastIntakes.Count
+		DebugScreen.logRow("intake=$(intake)")
+		if intake > maxIntake:
+			totalSmokeCount = 0
+			Debug.Log("You took too much man, you took too much, too much!")
+			MessageYouTookTooMuchMan()
+
+	def updateBar():
 		full as single = (totalSmokeCount cast single) / maxCapacity
 		DebugScreen.logRow("lungs=$(totalSmokeCount) ($((full * 100).ToString('0.#'))%)")
 		# DebugScreen.logRow("smoke=$(totalSmokeCount/Time.timeSinceLevelLoad)")
