@@ -49,17 +49,14 @@ class Inhale(MonoBehaviour):
 		God.inst.hermes.stopListening(MessageMode, self)
 
 	def OnMsgMode(msg as MessageMode):
-		# Debug.Log("mode: ${msg.mode}")
 		inMode = msg.mode == GameMode.Inhale
+
+	def oninModeChanged():
 		if inMode:
 			burnLevel = 0
 		else:
 			smokeParticleSystem.emissionRate = 0
 			flameSpriteRenderer.sprite = null
-
-	def oninModeChanged():
-		# Debug.Log("*** inhaling=$(inMode)")
-		pass
 
 	def Update():
 		return if not inMode
