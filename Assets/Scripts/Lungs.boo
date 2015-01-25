@@ -35,6 +35,14 @@ class Lungs(MonoBehaviour):
 	def Awake():
 		barMask.offsetMax.y = desiredValue
 
+	def OnEnable():
+		God.inst.hermes.listen(MessageSmokeMode, self)
+	def OnDisable():
+		God.inst.hermes.stopListening(MessageSmokeMode, self)
+
+	def OnMsgSmokeMode(msg as MessageSmokeMode):
+		collider.enabled = msg.enabled
+
 	def OnParticleCollision(other as GameObject):
 		now = Time.time
 		lastIntakes.Enqueue(now)
@@ -61,6 +69,7 @@ class Lungs(MonoBehaviour):
 		DebugScreen.logRow("intake=$(intake)")
 		if intake > maxIntake:
 			totalSmokeCount = 0
+			lastIntakes.Clear()
 			Debug.Log("You took too much man, you took too much, too much!")
 			MessageYouTookTooMuchMan()
 

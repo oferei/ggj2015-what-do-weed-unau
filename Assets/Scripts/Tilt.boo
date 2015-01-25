@@ -38,6 +38,8 @@ class Tilt(MonoBehaviour):
 
 	def OnMsgMode(msg as MessageMode):
 		_inhaleMode = msg.mode == GameMode.Inhale
+		if not _inhaleMode:
+			smokeMode = false
 
 	def Update():
 		if _inhaleMode:
@@ -53,8 +55,9 @@ class Tilt(MonoBehaviour):
 
 		slider.value = deviceAngle
 		smoothAngle = Mathf.SmoothDampAngle(smoothAngle, deviceAngle, currentVelocity, smoothTime, maxSpeed)
-		debugScreen.logRow("smoothAngle=$(smoothAngle)")
+		# debugScreen.logRow("smoothAngle=$(smoothAngle)")
 
 		cameraAngle = Mathf.Lerp(cameraBottomAngle, cameraTopAngle, smoothAngle)
 		Camera.main.transform.localEulerAngles.x = cameraAngle
-		smokeMode = cameraAngle >= cameraSmokeAngleThreshold
+		
+		smokeMode = _inhaleMode and cameraAngle >= cameraSmokeAngleThreshold

@@ -3,5 +3,6 @@
 	Intro
 	Dialogue
 	Inhale
+	Cough
 	Hold
 	Exhale

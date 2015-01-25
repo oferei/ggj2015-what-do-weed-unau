@@ -29,4 +29,4 @@ class Loop (MonoBehaviour):
 		God.inst.hermes.stopListening(MessageYouTookTooMuchMan, self)
 
 	def OnMsgYouTookTooMuchMan(msg as MessageYouTookTooMuchMan):
-		Debug.Log("YouTookTooMuchMan")
+		currentMode = GameMode.Cough
