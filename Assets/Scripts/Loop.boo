@@ -103,6 +103,9 @@ class Loop (MonoBehaviour):
 	def onSuccessDone():
 		currentMode = GameMode.Inhale
 
+	def onLungsFull():
+		currentMode = GameMode.Hold
+
 	def onCough():
 		currentMode = GameMode.Cough
 
