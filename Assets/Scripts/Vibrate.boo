@@ -2,10 +2,8 @@
 
 class Vibrate(MonoBehaviour):
 
-	public updateInterval as single = 0.5
-
-	OFF = 0
-	ON = 1
+	public maxOff as int = 500
+	public minOff as int = 100
 
 	_strength as single = 0
 	strength:
@@ -15,19 +13,15 @@ class Vibrate(MonoBehaviour):
 			_strength = value
 			if _strength > 0:
 				if not IsInvoking():
-					InvokeRepeating("vibrate", 0, updateInterval)
+					vibrate()
 			else:
 				CancelInvoke()
 				Vibration.Cancel()
 
-	pattern as (long)
-
-	def Awake():
-		pattern = array[of long]((2))
-		# pattern[OFF] = 100 # off
-		pattern[ON] = 1 # on
+	pattern as (long) = (0L, 1L, 0L) # off/on/off
 
 	def vibrate():
-		pattern[OFF] = Mathf.Lerp(300, 100, strength) # off
-		# DebugScreen.logRow("vibrate=$(strength) off=$(pattern[OFF])")
+		pattern[2] = Mathf.Lerp(maxOff, minOff, strength) # off
+		# Debug.Log("vibrate=$(strength) off=$(pattern[2])")
 		Vibration.Vibrate(pattern, 0)
+		Invoke("vibrate", (1 + pattern[2]) cast single / 1000)
