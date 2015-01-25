@@ -51,8 +51,11 @@ class Inhale(MonoBehaviour):
 	def OnMsgMode(msg as MessageMode):
 		# Debug.Log("mode: ${msg.mode}")
 		inMode = msg.mode == GameMode.Inhale
-		if not inMode:
+		if inMode:
+			burnLevel = 0
+		else:
 			smokeParticleSystem.emissionRate = 0
+			flameSpriteRenderer.sprite = null
 
 	def oninModeChanged():
 		# Debug.Log("*** inhaling=$(inMode)")
