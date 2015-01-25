@@ -16,6 +16,7 @@ class Lungs(MonoBehaviour):
 	public barMaxSpeed as single = 1
 	public gameloop as Loop
 	public lighter as Lighter
+	public vibrate as Vibrate
 
 	desiredValue as single = emptyValue
 
@@ -45,6 +46,7 @@ class Lungs(MonoBehaviour):
 
 	def OnMsgSmokeMode(msg as MessageSmokeMode):
 		collider.enabled = msg.enabled
+		vibrate.strength = 0
 
 	def OnParticleCollision(other as GameObject):
 		now = Time.time
@@ -75,6 +77,8 @@ class Lungs(MonoBehaviour):
 			lastIntakes.Clear()
 			Debug.Log("You took too much man, you took too much, too much!")
 			gameloop.onCough()
+		else:
+			vibrate.strength = (intake cast single / maxIntake)
 
 	def updateBar():
 		full as single = (totalSmokeCount cast single) / maxCapacity

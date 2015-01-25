@@ -7323,6 +7323,7 @@ GameObject:
   - 114: {fileID: 915162486}
   - 82: {fileID: 915162487}
   - 114: {fileID: 915162488}
+  - 114: {fileID: 915162489}
   m_Layer: 8
   m_Name: Lungs
   m_TagString: Untagged
@@ -7366,6 +7367,7 @@ MonoBehaviour:
   barMaxSpeed: 100
   gameloop: {fileID: 1814950288}
   lighter: {fileID: 1139373842}
+  vibrate: {fileID: 915162489}
 --- !u!23 &915162483
 Renderer:
   m_ObjectHideFlags: 0
@@ -7497,6 +7499,18 @@ MonoBehaviour:
   maxSmokeTime: 6.4000001
   stillBlowingTime: 9
   extraTime: 5
+--- !u!114 &915162489
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 915162480}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7690c345cc014670adad6987f01b5ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  updateInterval: .5
 --- !u!1 &915992255
 GameObject:
   m_ObjectHideFlags: 0
@@ -13100,8 +13114,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b801111f01b7c4434a277449adf44b51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skipIntro: 0
-  skipWelcome: 0
+  skipIntro: 1
+  skipWelcome: 1
   skipInhale: 0
   delayAfterIntro: 2
   logoObject: {fileID: 793289411}
