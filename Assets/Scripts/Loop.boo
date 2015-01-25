@@ -8,6 +8,7 @@ class Loop (MonoBehaviour):
 	public delayAfterIntro as single = 2.0
 	public logoObject as GameObject
 	public StartObject as GameObject
+	public talkAnimation as Animator
 	public speechBubble as GameObject
 	public welcomeTexts as (GameObject)
 	public coughTexts as (GameObject)
@@ -47,7 +48,9 @@ class Loop (MonoBehaviour):
 	def onModeChanged():
 		MessageMode(currentMode)
 
-		speechBubble.SetActive(currentMode == GameMode.Dialogue or currentMode == GameMode.Exhale)
+		showText = currentMode == GameMode.Dialogue or currentMode == GameMode.Exhale
+		talkAnimation.enabled = showText
+		speechBubble.SetActive(showText)
 
 		if currentMode == GameMode.Intro:
 			onModeIntro()

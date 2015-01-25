@@ -7952,7 +7952,7 @@ Animator:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1099253529}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 2566d7fb186b6214bb421bb248c3a1c2, type: 2}
   m_CullingMode: 0
@@ -13122,6 +13122,7 @@ MonoBehaviour:
   delayAfterIntro: 2
   logoObject: {fileID: 793289411}
   StartObject: {fileID: 852513019}
+  talkAnimation: {fileID: 1099253532}
   speechBubble: {fileID: 491269909}
   welcomeTexts:
   - {fileID: 2003340769}
