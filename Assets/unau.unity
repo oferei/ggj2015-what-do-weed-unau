@@ -1722,10 +1722,10 @@ ParticleSystem:
           rgba: 16777215
         key1:
           serializedVersion: 2
-          rgba: 1358954495
+          rgba: 4294967295
         key2:
           serializedVersion: 2
-          rgba: 1342177280
+          rgba: 3271557120
         key3:
           serializedVersion: 2
           rgba: 1342177280
@@ -1750,15 +1750,15 @@ ParticleSystem:
         ctime6: 0
         ctime7: 0
         atime0: 0
-        atime1: 6939
-        atime2: 65535
+        atime1: 6554
+        atime2: 58211
         atime3: 65535
         atime4: 0
         atime5: 0
         atime6: 0
         atime7: 0
         m_NumColorKeys: 2
-        m_NumAlphaKeys: 3
+        m_NumAlphaKeys: 4
       minGradient:
         key0:
           serializedVersion: 2
@@ -10025,7 +10025,7 @@ MonoBehaviour:
   fanFactor: 1
   lighterFactor: 1.5
   chillFactor: .699999988
-  offThreshold: .0299999993
+  offThreshold: .100000001
   flameSpriteRenderer: {fileID: 1923456347}
   flameSprites:
   - {fileID: 21300000, guid: d5bd112461b77a241a923ff5665adf11, type: 3}
@@ -10066,14 +10066,14 @@ MonoBehaviour:
   - {fileID: 21300020, guid: 83a40bbe86bc9f94fa2044c2b9c7da94, type: 3}
   smokeParticleSystem: {fileID: 426188173}
   smokeVelocities:
-  - -.200000003
-  - 1
+  - -.150000006
+  - 1.29999995
   smokeEmissionRates:
   - 0
-  - 9
+  - 12
   smokeTintAlphas:
-  - .270000011
-  - 1
+  - .0500000007
+  - .5
 --- !u!4 &1191065415
 Transform:
   m_ObjectHideFlags: 0
