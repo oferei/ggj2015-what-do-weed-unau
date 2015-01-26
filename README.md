@@ -7,7 +7,8 @@ For more details and playable version: http://globalgamejam.org/2015/games/what-
 
 Credits:
 
-* Graphics: Dave Levy
-* Programming: Ofer Reichman
-* Production: Assaf Ronen
-* Sound: Idan Egozy
+* Design - Ofer Reichman, Dave Levy & Assaf Ronen
+* Creative - Dave Levy
+* Coding - Ofer Reichman
+* Sound - Idan Egozy
+* Production - Assaf Ronen
