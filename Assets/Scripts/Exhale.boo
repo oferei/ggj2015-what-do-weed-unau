@@ -61,7 +61,7 @@ class Exhale(MonoBehaviour):
 		for breath in breaths:
 			sum += breath.strength
 		totalStrength = sum / monitorPeriod
-		DebugScreen.logRow("exhale=$(totalStrength)")
+		# DebugScreen.logRow("exhale=$(totalStrength)")
 		if totalStrength >= threshold:
 			monitoring = false
 			StartCoroutine(exhale())

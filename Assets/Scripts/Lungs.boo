@@ -73,7 +73,7 @@ class Lungs(MonoBehaviour):
 		while lastIntakes.Count > 0 and lastIntakes.Peek() < earliestIntakeTime:
 			lastIntakes.Dequeue()
 		intake = lastIntakes.Count
-		DebugScreen.logRow("intake=$(intake)")
+		# DebugScreen.logRow("intake=$(intake)")
 		if intake > maxIntake:
 			totalSmokeCount = 0
 			lastIntakes.Clear()
