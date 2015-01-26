@@ -128,9 +128,6 @@ class Loop(MonoBehaviour):
 	def onCoughTextDone():
 		currentMode = GameMode.Inhale
 
-	def onHoldTextDone():
-		currentMode = GameMode.Exhale
-
 	def onSuccessTextDone():
 		currentMode = GameMode.Inhale
 
