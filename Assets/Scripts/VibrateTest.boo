@@ -21,9 +21,9 @@ class VibrateTest(MonoBehaviour):
 		GUI.Label(Rect(340, 40, 300, 60), "Off (ms)", labelStyle)
 		offText = GUI.TextField(Rect(340, 120, 300, 60), offText, textFieldStyle)
 		if GUI.Button(Rect(20, 200, 300, 100), "Start", buttonStyle):
-			pattern3 = array[of long]((2))
-			pattern3[0] = long.Parse(offText)
-			pattern3[1] = long.Parse(onText)
-			Vibration.Vibrate(pattern3, 0)
+			pattern = array[of long]((2))
+			pattern[0] = long.Parse(offText)
+			pattern[1] = long.Parse(onText)
+			Vibration.Vibrate(pattern, 0)
 		if GUI.Button(Rect(340, 200, 300, 100), "Stop", buttonStyle):
 			Vibration.Cancel()
