@@ -16,7 +16,10 @@ class AutoDimVolume(MonoBehaviour):
 		God.inst.hermes.stopListening(MessageMode, self)
 
 	def OnMsgMode(msg as MessageMode):
-		desiredVolume = (dimmedVolume if msg.mode == GameMode.Inhale else normalVolume)
+		desiredVolume = (dimmedVolume if needToBeQuiet(msg.mode) else normalVolume)
+
+	def needToBeQuiet(mode as GameMode):
+		return mode == GameMode.Inhale or mode == GameMode.Hold or mode == GameMode.Exhale
 
 	def Update():
 		audio.volume = Mathf.SmoothDamp(audio.volume, desiredVolume, currentVelocity, smoothTime, maxSpeed)
