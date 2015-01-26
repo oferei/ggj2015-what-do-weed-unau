@@ -7420,6 +7420,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameloop: {fileID: 1814950288}
   particles: {fileID: 824887621}
+  vibrate: {fileID: 915162489}
   sound: {fileID: 8300000, guid: 330934ef9a1d949368d8cd916bdb5dd7, type: 3}
   duration: 5
   pattern: 320000001d0100005a000000e1000000a50000008c000000bd0100006400000010270000

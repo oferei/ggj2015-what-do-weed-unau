@@ -35,9 +35,11 @@ class Lungs(MonoBehaviour):
 	toDeplete as single = 0
 
 	lastIntakes = Generic.Queue[of single]()
+	vibrateHandle as int
 
 	def Awake():
 		barMask.offsetMax.y = desiredValue
+		vibrateHandle = vibrate.nextHandle
 
 	def OnEnable():
 		God.inst.hermes.listen(MessageSmokeMode, self)
@@ -46,7 +48,7 @@ class Lungs(MonoBehaviour):
 
 	def OnMsgSmokeMode(msg as MessageSmokeMode):
 		collider.enabled = msg.enabled
-		vibrate.strength = 0
+		vibrate.stop(vibrateHandle)
 
 	def OnParticleCollision(other as GameObject):
 		now = Time.time
@@ -78,7 +80,7 @@ class Lungs(MonoBehaviour):
 			Debug.Log("You took too much man, you took too much, too much!")
 			gameloop.onCough()
 		else:
-			vibrate.strength = (intake cast single / maxIntake)
+			vibrate.pulse(vibrateHandle, intake cast single / maxIntake)
 
 	def updateBar():
 		full as single = (totalSmokeCount cast single) / maxCapacity
