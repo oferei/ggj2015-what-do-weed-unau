@@ -146,8 +146,13 @@ class Loop(MonoBehaviour):
 		alterReality()
 
 	def alterReality():
+		undoAllAlterations()
 		realityAlterations[nextrealityAlteration].SetActive(true)
 		nextrealityAlteration = (nextrealityAlteration + 1) % realityAlterations.Length
+
+	def undoAllAlterations():
+		for realityAlteration in realityAlterations:
+			realityAlteration.SetActive(false)
 
 	def onExhaleDone():
 		currentMode = GameMode.Dialogue
