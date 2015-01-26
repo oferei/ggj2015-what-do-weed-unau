@@ -30,6 +30,7 @@ class Loop(MonoBehaviour):
 	lastMode = GameMode.Undefined
 
 	nextSuccessText as int = 0
+	nextrealityAlteration as int = 0
 
 	def Awake():
 		currentMode = GameMode.Intro
@@ -145,7 +146,8 @@ class Loop(MonoBehaviour):
 		alterReality()
 
 	def alterReality():
-		realityAlterations[0].SetActive(true)
+		realityAlterations[nextrealityAlteration].SetActive(true)
+		nextrealityAlteration = (nextrealityAlteration + 1) % realityAlterations.Length
 
 	def onExhaleDone():
 		currentMode = GameMode.Dialogue
