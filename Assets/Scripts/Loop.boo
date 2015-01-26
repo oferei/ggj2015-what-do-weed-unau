@@ -1,6 +1,6 @@
 ﻿import UnityEngine
 
-class Loop (MonoBehaviour): 
+class Loop(MonoBehaviour):
 
 	public skipIntro = false
 	public skipWelcome = false

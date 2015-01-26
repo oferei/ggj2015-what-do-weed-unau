@@ -1,6 +1,6 @@
 ﻿import UnityEngine
 
-class Cough (MonoBehaviour): 
+class Cough(MonoBehaviour):
 
 	public gameloop as Loop
 	public particles as ParticleSystem
