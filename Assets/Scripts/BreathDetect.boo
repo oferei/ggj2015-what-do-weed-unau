@@ -2,8 +2,8 @@
 
 class BreathDetect(MonoBehaviour):
 
-	public maxVolume as single = 0.8
-	public minVolume as single = 0.0
+	public maxRms as single = 0.8
+	public minRms as single = 0.0
 
 	public mic as Mic
 
@@ -13,5 +13,5 @@ class BreathDetect(MonoBehaviour):
 			return _strength
 
 	def Update ():
-		_strength = Mathf.InverseLerp(minVolume, maxVolume, mic.volume)
+		_strength = Mathf.InverseLerp(minRms, maxRms, mic.volumeRms)
 		# DebugScreen.logRow("breath=$(strength)")
