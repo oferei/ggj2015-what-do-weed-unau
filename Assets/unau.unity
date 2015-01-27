@@ -7876,14 +7876,13 @@ GameObject:
   m_Component:
   - 4: {fileID: 1059575181}
   - 114: {fileID: 1059575180}
-  - 114: {fileID: 1059575182}
   m_Layer: 0
   m_Name: Vibrate Test
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1059575180
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7907,17 +7906,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 976310142}
   m_RootOrder: 5
---- !u!114 &1059575182
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1059575179}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 54ba2f5d63c6b4d3bb4171e0c453c994, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1099253529
 GameObject:
   m_ObjectHideFlags: 0
@@ -12715,7 +12703,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1681976782
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12731,11 +12719,11 @@ MonoBehaviour:
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 30
+    m_FontSize: 70
     m_FontStyle: 0
     m_BestFit: 1
     m_MinSize: 10
-    m_MaxSize: 14
+    m_MaxSize: 40
     m_Alignment: 6
     m_RichText: 1
     m_HorizontalOverflow: 1
@@ -13142,7 +13130,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b801111f01b7c4434a277449adf44b51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skipIntro: 1
+  skipIntro: 0
   skipWelcome: 0
   skipInhale: 0
   delayAfterIntro: 2

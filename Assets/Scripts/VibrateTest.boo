@@ -24,6 +24,6 @@ class VibrateTest(MonoBehaviour):
 			pattern = array[of long]((2))
 			pattern[0] = long.Parse(offText)
 			pattern[1] = long.Parse(onText)
-			Vibration.Vibrate(pattern, 0)
+			Vibration.vibrate(pattern, 0)
 		if GUI.Button(Rect(340, 200, 300, 100), "Stop", buttonStyle):
-			Vibration.Cancel()
+			Vibration.cancel()

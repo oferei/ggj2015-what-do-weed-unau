@@ -35,7 +35,7 @@ class Vibrate(MonoBehaviour):
 		handles.Add(handle)
 		mode = Mode.Custom
 		CancelInvoke()
-		Vibration.Vibrate(pattern, 0)
+		Vibration.vibrate(pattern, 0)
 
 	def stop(handle as int):
 		if handle not in handles:
@@ -54,11 +54,11 @@ class Vibrate(MonoBehaviour):
 	def cancelVibration() as IEnumerator:
 		yield
 		if mode == Mode.Off:
-			Vibration.Cancel()
+			Vibration.cancel()
 
 	def vibrate():
 		length as long = Mathf.Lerp(maxOff, minOff, pulseStrength)
 		simplePattern = (0L, 1L, length)
 		# Debug.Log("vibrate=$(pulseStrength) off=$(simplePattern[2])")
-		Vibration.Vibrate(simplePattern, 0)
+		Vibration.vibrate(simplePattern, 0)
 		Invoke("vibrate", (1 + simplePattern[2]) cast single / 1000)
