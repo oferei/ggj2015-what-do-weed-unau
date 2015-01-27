@@ -8045,7 +8045,7 @@ MonoBehaviour:
   maxY: .670000017
   minY: .579999983
   speed: 15
-  threshold: .100000001
+  threshold: .5
   handLightDelay: .0500000007
   ignitionDelay: .150000006
   ignitionFailureChance: .100000001
