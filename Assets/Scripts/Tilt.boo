@@ -49,12 +49,12 @@ class Tilt(MonoBehaviour):
 			if manualTilt:
 				deviceAngle = slider.value
 			else:
-				debugScreen.logRow("accel=$(Input.acceleration)")
+				# debugScreen.logRow("accel=$(Input.acceleration)")
 				if Input.acceleration.z < 0:
 					deviceAngle = Mathf.InverseLerp(bottomAngle, topAngle, Input.acceleration.y)
 				else:
 					deviceAngle = 1
-				debugScreen.logRow("angle=$(deviceAngle)")
+				# debugScreen.logRow("angle=$(deviceAngle)")
 		else:
 			deviceAngle = 1
 
