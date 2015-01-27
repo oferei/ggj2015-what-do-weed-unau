@@ -14,17 +14,17 @@ class Mic(MonoBehaviour):
 
 	visualHeight as single = 20
 
-	_volumeRms as single = 0
-	volumeRms:
+	_loudnessRms as single = 0
+	loudnessRms:
 		get:
-			return _volumeRms
+			return _loudnessRms
 		set:
-			_volumeRms = value
-			volumeBar.transform.localScale.y = _volumeRms
+			_loudnessRms = value
+			volumeBar.transform.localScale.y = _loudnessRms
 
-	volumeDb:
+	loudnessDb:
 		get:
-			return 20 * Mathf.Log10(_volumeRms)
+			return 20 * Mathf.Log10(_loudnessRms)
 
 	clip as AudioClip
 
@@ -44,10 +44,10 @@ class Mic(MonoBehaviour):
 		# Debug.Log("AudioSettings.outputSampleRate=$(AudioSettings.outputSampleRate)")
 
 	def Update():
-		calcVolume()
+		calcLoudness()
 		# analyzeSpectrum()
 
-	def calcVolume():
+	def calcLoudness():
 		pos = Microphone.GetPosition(null)
 		# DebugScreen.logRow("mic.pos=$(pos)")
 		if pos > 0:
@@ -60,9 +60,9 @@ class Mic(MonoBehaviour):
 			for i in range(numSamplesInWindow):
 				sum += Mathf.Pow(samples[(srcIndex + numSamples) % numSamples], 2)
 				--srcIndex
-			volumeRms = Mathf.Sqrt(sum / numSamplesInWindow)
-			DebugScreen.logRow("mic.rms=$(volumeRms.ToString('0.##'))")
-			# DebugScreen.logRow("mic.db=$(volumeDb.ToString('0.#'))")
+			loudnessRms = Mathf.Sqrt(sum / numSamplesInWindow)
+			DebugScreen.logRow("mic.rms=$(loudnessRms.ToString('0.##'))")
+			# DebugScreen.logRow("mic.db=$(loudnessDb.ToString('0.#'))")
 
 	def analyzeSpectrum():
 		audio.GetSpectrumData(spectrum, 0, fftWindow)
@@ -75,12 +75,9 @@ class Mic(MonoBehaviour):
 			Debug.DrawLine(Vector3(Mathf.Log((i - 1)) * xFactor, (spectrum[(i - 1)] * 95) * visualHeight - 231, 1), Vector3(Mathf.Log(i) * xFactor, (spectrum[i] * 95) * visualHeight - 231, 1), Color.green)
 			Debug.DrawLine(Vector3(Mathf.Log((i - 1)) * xFactor, Mathf.Log(spectrum[(i - 1)]) * visualHeight - 231, 3), Vector3(Mathf.Log(i) * xFactor, Mathf.Log(spectrum[i]) * visualHeight - 231, 3), Color.yellow)
 
-		# sum as single = 0
-		# for s in spectrum:
-		# 	sum += s
-		# avg = sum / spectrumSampleSize * 1000
-		# DebugScreen.logRow("avg=$(avg.ToString('0.###'))")
+		calcPitch()
 
+	def calcPitch():
 		maxI as int = -1
 		maxSample as single = -1
 		for i in range(spectrumSampleSize):
