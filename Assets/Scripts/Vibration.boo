@@ -22,25 +22,25 @@ class Vibration:
 			pass
 
 	static def vibrate():
-		instance._cibrate()
+		instance._vibrate()
 
-	def _cibrate():
+	def _vibrate():
 		# this line is essential for granting VIBRATE permission
 		Handheld.Vibrate()
 
 	static def vibrate(milliseconds as long):
-		instance._cibrate(milliseconds)
+		instance._vibrate(milliseconds)
 
-	def _cibrate(milliseconds as long):
+	def _vibrate(milliseconds as long):
 		ifdef UNITY_ANDROID and not UNITY_EDITOR:
 			vibrator.Call("vibrate", milliseconds)
 		ifdef not UNITY_ANDROID or UNITY_EDITOR:
 			pass
 
 	static def vibrate(pattern as (long), repeat as int):
-		instance._cibrate(pattern, repeat)
+		instance._vibrate(pattern, repeat)
 
-	def _cibrate(pattern as (long), repeat as int):
+	def _vibrate(pattern as (long), repeat as int):
 		ifdef UNITY_ANDROID and not UNITY_EDITOR:
 			vibrator.Call("vibrate", pattern, repeat)
 		ifdef not UNITY_ANDROID or UNITY_EDITOR:
