@@ -36,7 +36,7 @@ class Mic(MonoBehaviour):
 			volumeBar.transform.localScale.y = _loudnessRms
 	loudnessRmsUpToDate = false
 
-	loudnessDb:
+	loudnessDB:
 		get:
 			return 20 * Mathf.Log10(_loudnessRms)
 
