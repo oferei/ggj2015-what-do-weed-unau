@@ -67,7 +67,7 @@ PlayerSettings:
     16:10: 1
     16:9: 1
     Others: 1
-  iPhoneBundleIdentifier: com.hamsaone.whatdoweedunau
+  iPhoneBundleIdentifier: com.onehamsa.whatdoweedunau
   metroEnableIndependentInputSource: 0
   metroEnableLowLatencyPresentationAPI: 0
   productGUID: ed58e8b9736444671aa10e734e45c518
