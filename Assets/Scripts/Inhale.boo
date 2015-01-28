@@ -62,7 +62,7 @@ class Inhale(MonoBehaviour):
 		return if not inMode
 		updateFlame()
 		# DebugScreen.logRow("burn=$(burnLevel.ToString('0.##'))")
-	# 	DebugScreen.logRow("in:breath=$(breathDetect.strength)")
+	# 	DebugScreen.logRow("in:breath=$(breathDetect.inhaleStrength)")
 	# 	DebugScreen.logRow("in:light=$(lighter.proximity.ToString('0.##'))")
 	# 	DebugScreen.logRow("in:burn=$(burnLevel.ToString('0.##'))")
 
@@ -71,7 +71,7 @@ class Inhale(MonoBehaviour):
 		updateSmoke()
 
 	def updateFlame():
-		flameSuction = breathDetect.strength * lighter.proximity
+		flameSuction = breathDetect.inhaleStrength * lighter.proximity
 		if lighter.lit:
 			# DebugScreen.logRow("suction=$(flameSuction.ToString('0.##'))")
 			now = Time.time
@@ -107,8 +107,8 @@ class Inhale(MonoBehaviour):
 
 	def increaseBurn():
 		fanPotential = Mathf.Clamp01(burnLevel * 2)
-		fanPower = breathDetect.strength * fanPotential * fanFactor
-		lighterPower = breathDetect.strength * lighter.proximity * lighterFactor
+		fanPower = breathDetect.inhaleStrength * fanPotential * fanFactor
+		lighterPower = breathDetect.inhaleStrength * lighter.proximity * lighterFactor
 		heat = fanPower + lighterPower
 		# if lighter.proximity:
 		# 	Debug.Log("*** fanPower=$(fanPower) lighterPower=$(lighterPower)")
@@ -127,7 +127,7 @@ class Inhale(MonoBehaviour):
 		count = smokeParticleSystem.GetParticles(particles)
 		# Debug.Log("smokeParticleSystem.particleCount=$(smokeParticleSystem.particleCount) count=$(count)")
 		if inMode:
-			velocity = Mathf.Lerp(smokeVelocities[0], smokeVelocities[1], breathDetect.strength)
+			velocity = Mathf.Lerp(smokeVelocities[0], smokeVelocities[1], breathDetect.inhaleStrength)
 		else:
 			velocity = smokeVelocities[0]
 		for particle in particles:

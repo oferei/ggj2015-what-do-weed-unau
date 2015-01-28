@@ -51,7 +51,7 @@ class Exhale(MonoBehaviour):
 
 	def recordBreath():
 		now = Time.time
-		breaths.Enqueue(BreathRecord(strength: breathDetect.strength * Time.deltaTime, time: now))
+		breaths.Enqueue(BreathRecord(strength: breathDetect.exhaleStrength * Time.deltaTime, time: now))
 		earliestBreathTime = now - monitorPeriod
 		while breaths.Peek().time < earliestBreathTime:
 			breaths.Dequeue()

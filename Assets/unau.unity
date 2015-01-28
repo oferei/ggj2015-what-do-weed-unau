@@ -534,8 +534,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86d1d06ac7df148f4a828be0c51ae511, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxRms: .800000012
-  minRms: 0
+  inhaleMinFrequency: 2000
+  inhaleMaxFrequency: 12000
+  inhaleGain: 1000
+  exhaleMinFrequency: 2000
+  exhaleMaxFrequency: 5000
+  exhaleGain: 4000
   mic: {fileID: 1508246638}
 --- !u!4 &158802260
 Transform:
@@ -12066,12 +12070,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b595fc7840e4b4e2bae9528cf939f526, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bufSize: 1
+  bufSizeInSecs: 1
   sampleRate: 44100
   windowSizeInSecs: .300000012
   spectrumSampleSize: 1024
   fftWindow: 5
-  minAmp: .00999999978
+  minAmp: 9.99999975e-05
   volumeBar: {fileID: 1729663615}
 --- !u!4 &1508246639
 Transform:
