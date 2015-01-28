@@ -4,7 +4,8 @@ class Vibration:
 
 	static final VIBRATOR_SERVICE = "vibrator"
 
-	vibrator as AndroidJavaObject
+	ifdef UNITY_ANDROID and not UNITY_EDITOR:
+		vibrator as AndroidJavaObject
 
 	static _instance as Vibration
 	protected static instance:
