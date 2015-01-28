@@ -8,6 +8,7 @@ class Exhale(MonoBehaviour):
 
 	public gameloop as Loop
 	public particles as ParticleSystem
+	public startDelay as single = 2
 	public maxSmokeTime as single = 6.4
 	public stillBlowingTime as single = 5
 	public extraTime as single = 5
@@ -40,9 +41,13 @@ class Exhale(MonoBehaviour):
 	def oninModeChanged():
 		if inMode:
 			breaths.Clear()
-			monitoring = true
+			Invoke("startMonitoring", startDelay)
 		else:
 			monitoring = false
+
+	def startMonitoring():
+		if inMode:
+			monitoring = true
 
 	def Update():
 		return unless monitoring

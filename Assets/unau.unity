@@ -7514,6 +7514,7 @@ MonoBehaviour:
   breathDetect: {fileID: 158802259}
   gameloop: {fileID: 1814950288}
   particles: {fileID: 1185816797}
+  startDelay: 2
   maxSmokeTime: 6.4000001
   stillBlowingTime: 7
   extraTime: 5
