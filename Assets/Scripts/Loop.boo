@@ -24,7 +24,7 @@ class Loop(MonoBehaviour):
 			if _currentMode != value:
 				lastMode = _currentMode
 				_currentMode = value
-				Debug.Log("Game mode: $(currentMode)")
+				# Debug.Log("Game mode: $(currentMode)")
 				onModeChanged()
 
 	lastMode = GameMode.Undefined
